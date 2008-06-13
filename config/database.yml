@@ -1,0 +1,21 @@
+development:
+  adapter: mysql
+  database: the_incentosaur_development
+  username: root
+  password: root
+  host: localhost
+  socket: /var/lib/mysql/mysql.sock
+
+test:
+  adapter: mysql
+  database: the_incentosaur_test
+  username: root
+  password: root
+  host: localhost
+
+production:
+  adapter: mysql
+  database: the_incentosaur_test
+  username: root
+  password: root
+  host: localhost

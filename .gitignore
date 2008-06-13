@@ -1,0 +1,5 @@
+log/*
+!log/placeholder
+tmp/**/*
+config/database.yml
+db/development_structure.*
