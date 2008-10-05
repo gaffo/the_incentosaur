@@ -6,6 +6,8 @@
         <dict>
             <key>database.</key>
             <string>config\database.yml</string>
+            <key>feed_tes</key>
+            <string>test\unit\feed_test.rb</string>
             <key>feed_type</key>
             <string>test\unit\feed_type_test.rb</string>
             <key>feed_type.</key>
