@@ -1,0 +1,12 @@
+<table>
+	<tr>
+		<th>Author</th>
+		<th>ID</th>
+	</tr>
+	<% @values.each do |v| %>
+	<tr>
+		<td><%= v[:author] %></td>
+		<td><%= v[:id] %></td>
+	</tr>
+	<% end %>
+</table>
