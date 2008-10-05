@@ -35,8 +35,8 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => "home"
   
   map.namespace :admin do |admin|
-  	admin.resources :feed_types
-  	admin.resources :feeds
+  	admin.resources :feed_types, :active_scaffold => true
+  	admin.resources :feeds, :active_scaffold => true
   end
 
   # See how all your routes lay out with "rake routes"
