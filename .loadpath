@@ -2,4 +2,5 @@
 <loadpath>
 	<pathentry path="" type="src"/>
 	<pathentry path="GEM_LIB/actionpack-2.1.0/lib" type="var"/>
+	<pathentry path="GEM_LIB/actionpack-2.1.0/lib" type="var"/>
 </loadpath>

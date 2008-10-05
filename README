@@ -1,0 +1,8 @@
+== The Incentosaur ==
+The Incentosaur is a ruby application to help you track your online presence via 
+RSS Feeds and later commit logs to public urls. The idea is to 
+give yourslef points for different things done online such as blog posts
+bug reports, comments, and commits. The Incentosaur watches the feeds you tell it about
+and keeps your score up to date.
+
+Think of it as Ruby Community: The Game.
