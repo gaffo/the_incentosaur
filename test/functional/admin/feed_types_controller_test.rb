@@ -1,8 +1,14 @@
 require 'test_helper'
 
 class Admin::FeedTypesControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
-  end
+	
+	[:index, :new].each do |action|
+		context "given call to #{action}" do
+			setup do 
+				get(action)
+			end
+			should_respond_with :success
+		end
+	end
+	
 end

@@ -10,6 +10,12 @@
             <string>test\unit\feed_type_test.rb</string>
             <key>feed_type.</key>
             <string>app\models\feed_type.rb</string>
+            <key>feed_types</key>
+            <string>app\controllers\admin\feed_types_controller.rb</string>
+            <key>routes</key>
+            <string>vendor\rails\railties\lib\tasks\routes.rake</string>
+            <key>routes.</key>
+            <string>config\routes.rb</string>
             <key>unit</key>
             <string>vendor\rails\railties\lib\rails_generator\generators\components\plugin\templates\unit_test.rb</string>
         </dict>
