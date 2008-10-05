@@ -1,8 +1,12 @@
-require 'test_helper'
+require File.dirname(__FILE__) + "/../test_helper"
 
 class HomeControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
-  end
+  
+	context "given anyone" do
+		setup do
+			get(root_url)
+		end
+		should_respond_with :success
+		should_assign_to :feeds
+	end
 end

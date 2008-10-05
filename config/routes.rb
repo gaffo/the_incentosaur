@@ -36,6 +36,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
   	admin.resources :feed_types
+  	admin.resources :feeds
   end
 
   # See how all your routes lay out with "rake routes"

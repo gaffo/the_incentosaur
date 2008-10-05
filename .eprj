@@ -6,6 +6,8 @@
         <dict>
             <key>database.</key>
             <string>config\database.yml</string>
+            <key>default.c</key>
+            <string>public\stylesheets\default.css</string>
             <key>feed_tes</key>
             <string>test\unit\feed_test.rb</string>
             <key>feed_type</key>
@@ -14,9 +16,13 @@
             <string>app\models\feed_type.rb</string>
             <key>feed_types</key>
             <string>app\controllers\admin\feed_types_controller.rb</string>
+            <key>home_con</key>
+            <string>app\controllers\home_controller.rb</string>
             <key>routes</key>
             <string>vendor\rails\railties\lib\tasks\routes.rake</string>
             <key>routes.</key>
+            <string>config\routes.rb</string>
+            <key>routes.r</key>
             <string>config\routes.rb</string>
             <key>unit</key>
             <string>vendor\rails\railties\lib\rails_generator\generators\components\plugin\templates\unit_test.rb</string>
