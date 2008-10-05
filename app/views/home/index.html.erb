@@ -1,7 +1,7 @@
 <% @feeds.each do |feed| %>
 <div class="post">
 	<p class="date" title="<%= h feed.name %>"><%= truncate(feed.name, 15) %><b><%= feed.id %></b></p>
-	<h2 class="title"><%= h feed.name %></h2>
+	<h2 class="title"><a href="/feeds/<%= feed.id %>"><%= h feed.name %></a></h2>
 	<div class="entry">
 		Summary Information Here
 	</div>

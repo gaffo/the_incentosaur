@@ -7,7 +7,7 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
 	margin: 0px;
 	padding: 0px;
-	background: #3D5D68 url(/images/img01.jpg) repeat-x;
+	background: #EBEAD1 url(/images/img01.jpg) repeat-x;
 	font: 13px "Trebuchet MS", Arial, Helvetica, sans-serif;
 	color: #333333;
 }
@@ -178,6 +178,10 @@ hr {
 .post .title h2 {
 	padding: 0;
 	margin: 0;
+}
+
+.title a {
+	color: #514F42;;
 }
 
 .post .hr1 {
