@@ -4,7 +4,7 @@ class HomeControllerTest < ActionController::TestCase
   
 	context "given anyone" do
 		setup do
-			get(root_url)
+			get(:index)
 		end
 		should_respond_with :success
 		should_assign_to :feeds
