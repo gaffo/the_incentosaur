@@ -1,8 +1,9 @@
-require 'test_helper'
-
+require File.dirname(__FILE__) + "/../test_helper"
 class AuthorFeedTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  def test_truth
-    assert true
-  end
+	
+	# should_require_unique_attributes :name, :scoped_to => :feed_id
+	should_require_attributes :name, :feed_id
+	should_have_many :posts
+	should_belong_to :feed
+	
 end

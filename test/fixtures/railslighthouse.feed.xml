@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
+  <id>tag:rails.lighthouseapp.com,2008-03-29:/events</id>
+  <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com"/>
+  <link type="application/atom+xml" rel="self" href="http://rails.lighthouseapp.com/events.atom"/>
+  <title>rails Events</title>
+  <updated>2008-10-05T14:09:20Z</updated>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1430311</id>
+    <published>2008-10-06T04:56:28+01:00</published>
+    <updated>2008-10-06T04:56:29+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/336"/>
+    <author>
+      <name>ogryb</name>
+    </author>
+    <title type="html">Ruby on Rails: missing SomeModel#id after reset_subclasses [#336]</title>
+    <content type="html">&lt;li&gt;&amp;#x2192; Tag changed from &lt;em class="change"&gt;&amp;#147;2.0-stable activerecord bug edge patch&amp;#148;&lt;/em&gt; to &lt;em class="change"&gt;&amp;#147;&amp;quot;2.0-stable&amp;quot; activerecord bug edge patch&amp;#148;&lt;/em&gt;&lt;/li&gt;
+&lt;div&gt;&lt;p&gt;I'm having a bigger problem with 'reset_subclasses' in the
+following scenario:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Class A is derived from ActiveRecord&lt;/li&gt;
+&lt;li&gt;Class B is derived from A&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Class B looks OK when it's created first time. After
+reset_subclasses is called all methods of class B get deleted, but
+methods of class A are still there. Next time when class B is used
+I'm getting exceptions because all methods of class B and 'id' are
+still missing. It happens only if caching is off
+(config.cache_classes = false).&lt;/p&gt;
+&lt;p&gt;I need to fix it somehow. Please let me know what code is
+responsible for re-creating a class after it was processed by
+reset_subclasses. Probably I'll fix it there.&lt;/p&gt;
+&lt;p&gt;It happens in Rails 2.0.2 and 2.1.1 with both ruby 1.8.7 and
+1.8.6.&lt;/p&gt;
+&lt;p&gt;If you know any other "work around" please let me know too.&lt;/p&gt;
+&lt;p&gt;Below is the piece of code that cripples my classes:&lt;/p&gt;
+&lt;p&gt;def self.reset_subclasses #:nodoc: ....&lt;/p&gt;
+&lt;pre&gt;
+&lt;code&gt;    klass.instance_methods(false).each { |m| klass.send :undef_method, m }
+&lt;/code&gt;
+&lt;/pre&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1429584</id>
+    <published>2008-10-06T01:52:19+01:00</published>
+    <updated>2008-10-06T01:52:20+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/63"/>
+    <author>
+      <name>Gerrit Kaiser</name>
+    </author>
+    <title type="html">Ruby on Rails: [BUG] rake db:create and observers [#63]</title>
+    <content type="html">&lt;div&gt;&lt;p&gt;This one trips me up a lot aswell. Pretty much makes db:create
+and co unusable for me (I&amp;#8217;m heavily using branch-specific
+databases so have a need to create them even after the initial app
+generation).&lt;/p&gt;
+&lt;p&gt;I don&amp;#8217;t really see why db:create would depend on the whole
+environment at all&amp;#8230; Couldn&amp;#8217;t it just load the
+database.yml and use ActiveRecord independent of the app? That
+would reduce the startup time for those tasks aswell.&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1428930</id>
+    <published>2008-10-05T23:27:32+01:00</published>
+    <updated>2008-10-05T23:27:32+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/1154"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: Deprecated method of setting relative_url_root inside RailsConfigurator [#1154]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1428929</id>
+    <published>2008-10-05T23:26:32+01:00</published>
+    <updated>2008-10-05T23:26:32+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/changesets/8603813ac6e1bff8d3addad58d0a56b33baafc59"/>
+    <author>
+      <name>Repository</name>
+    </author>
+    <title type="html">Ruby on Rails: Changeset [8603813ac6e1bff8d3addad58d0a56b33baafc59] by Eugene Pimenov</title>
+    <content type="html">&lt;div&gt;&lt;p&gt;Fix memoize_all for methods with punctuation [&lt;a href="/projects/8994/tickets/1175" title="Ticket #1175"&gt;#1175&lt;/a&gt;
+state:resolved] Signed-off-by: Joshua Peek &lt;a href="mailto:josh@joshpeek.com"&gt;josh@joshpeek.com&lt;/a&gt; &lt;a href="http://github.com/rails/rails/commit/8603813ac6e1bff8d3addad58d0a56b33baafc59"&gt;
+http://github.com/rails/rails/co...&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1428927</id>
+    <published>2008-10-05T23:26:31+01:00</published>
+    <updated>2008-10-05T23:26:31+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/changesets/1c75b4fd42c707ce3d539e8453784b4abf74e035"/>
+    <author>
+      <name>Repository</name>
+    </author>
+    <title type="html">Ruby on Rails: Changeset [1c75b4fd42c707ce3d539e8453784b4abf74e035] by Chris Cherry</title>
+    <content type="html">&lt;div&gt;&lt;p&gt;Fix deprecated ActionController::Base.relative_url_root call in
+mongrel command Signed-off-by: Joshua Peek &lt;a href="mailto:josh@joshpeek.com"&gt;josh@joshpeek.com&lt;/a&gt; &lt;a href="http://github.com/rails/rails/commit/1c75b4fd42c707ce3d539e8453784b4abf74e035"&gt;
+http://github.com/rails/rails/co...&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1428928</id>
+    <published>2008-10-05T23:26:31+01:00</published>
+    <updated>2008-10-05T23:26:32+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/1175"/>
+    <author>
+      <name>Repository</name>
+    </author>
+    <title type="html">Ruby on Rails: memoize_all fails when method has ? or ! at the end and arity &gt; 0 [#1175]</title>
+    <content type="html">&lt;li&gt;&amp;#x2192; State changed from &lt;em class="change"&gt;&amp;#147;open&amp;#148;&lt;/em&gt; to &lt;em class="change"&gt;&amp;#147;resolved&amp;#148;&lt;/em&gt;&lt;/li&gt;
+&lt;div&gt;&lt;p&gt;(from [8603813ac6e1bff8d3addad58d0a56b33baafc59]) Fix
+memoize_all for methods with punctuation [&lt;a href="/projects/8994/tickets/1175" title="Ticket #1175"&gt;#1175&lt;/a&gt;
+state:resolved] Signed-off-by: Joshua Peek &lt;a href="mailto:josh@joshpeek.com"&gt;josh@joshpeek.com&lt;/a&gt; &lt;a href="http://github.com/rails/rails/commit/8603813ac6e1bff8d3addad58d0a56b33baafc59"&gt;
+http://github.com/rails/rails/co...&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1428926</id>
+    <published>2008-10-05T23:26:16+01:00</published>
+    <updated>2008-10-05T23:26:16+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/1177"/>
+    <author>
+      <name>Leon Bogaert</name>
+    </author>
+    <title type="html">Ruby on Rails: rails test doesn't load initializers when unit testing [#1177]</title>
+    <content type="html">&lt;div&gt;&lt;p&gt;I've got some custom inflection rules. One is for 'merk', it
+lives in 'initialializers/inflections.rb':&lt;/p&gt;
+&lt;p&gt;ActiveSupport::Inflector.inflections do |inflect|
+inflect.irregular 'merk', 'merken' end&lt;/p&gt;
+&lt;p&gt;But when I run rake test:units, I get an error:&lt;/p&gt;
+&lt;p&gt;test_truth(BrandstofTest): ActiveRecord::StatementInvalid:
+SQLite3::SQLException: no such table: merks: DELETE FROM "merks"
+WHERE 1=1&lt;/p&gt;
+&lt;p&gt;So, I think the custom inflection rules aren't loaded during
+these unit tests. However, if I go into 'script/console test',
+these rules work fine!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;'merk'.pluralize =&amp;gt; "merken"&lt;/p&gt;
+&lt;p&gt;Merk.delete_all =&amp;gt; 0&lt;/p&gt;
+&lt;p&gt;Merk.table_name =&amp;gt; "merken"&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1428061</id>
+    <published>2008-10-05T18:54:01+01:00</published>
+    <updated>2008-10-05T18:54:02+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/1137"/>
+    <author>
+      <name>Mathias Meyer</name>
+    </author>
+    <title type="html">Ruby on Rails: [PATCH] Plugin generator creates non-working Test class [#1137]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1428014</id>
+    <published>2008-10-05T18:30:00+01:00</published>
+    <updated>2008-10-05T18:30:00+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/1055"/>
+    <author>
+      <name>Repository</name>
+    </author>
+    <title type="html">Ruby on Rails: ActiveResource transfer of 'serialize :foo, Array' (YAML) attributes fails [#1055]</title>
+    <content type="html">&lt;li&gt;&amp;#x2192; State changed from &lt;em class="change"&gt;&amp;#147;new&amp;#148;&lt;/em&gt; to &lt;em class="change"&gt;&amp;#147;resolved&amp;#148;&lt;/em&gt;&lt;/li&gt;
+&lt;div&gt;&lt;p&gt;(from [4df45d86097efbeabceecfe53d8ea2da9ccbb107]) ActiveResource
+can load array of strings, like serialize :bar, Array&lt;/p&gt;
+&lt;p&gt;Signed-off-by: rick &lt;a href="mailto:technoweenie@gmail.com"&gt;technoweenie@gmail.com&lt;/a&gt;
+[&lt;a href="/projects/8994/tickets/1055" title="Ticket #1055"&gt;#1055&lt;/a&gt; state:resolved] &lt;a href="http://github.com/rails/rails/commit/4df45d86097efbeabceecfe53d8ea2da9ccbb107"&gt;
+http://github.com/rails/rails/co...&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1428015</id>
+    <published>2008-10-05T18:30:00+01:00</published>
+    <updated>2008-10-05T18:30:00+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/changesets/4df45d86097efbeabceecfe53d8ea2da9ccbb107"/>
+    <author>
+      <name>Repository</name>
+    </author>
+    <title type="html">Ruby on Rails: Changeset [4df45d86097efbeabceecfe53d8ea2da9ccbb107] by Matthew Moore</title>
+    <content type="html">&lt;div&gt;&lt;p&gt;ActiveResource can load array of strings, like serialize :bar,
+Array&lt;/p&gt;
+&lt;p&gt;Signed-off-by: rick &lt;a href="mailto:technoweenie@gmail.com"&gt;technoweenie@gmail.com&lt;/a&gt;
+[&lt;a href="/projects/8994/tickets/1055" title="Ticket #1055"&gt;#1055&lt;/a&gt; state:resolved] &lt;a href="http://github.com/rails/rails/commit/4df45d86097efbeabceecfe53d8ea2da9ccbb107"&gt;
+http://github.com/rails/rails/co...&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427998</id>
+    <published>2008-10-05T18:25:51+01:00</published>
+    <updated>2008-10-05T18:25:52+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/1128"/>
+    <author>
+      <name>rick</name>
+    </author>
+    <title type="html">Ruby on Rails: Fix config.gem bugs and add more tests [#1128]</title>
+    <content type="html">&lt;li&gt;&amp;#x2192; State changed from &lt;em class="change"&gt;&amp;#147;new&amp;#148;&lt;/em&gt; to &lt;em class="change"&gt;&amp;#147;resolved&amp;#148;&lt;/em&gt;&lt;/li&gt;
+&lt;div&gt;&lt;p&gt;Committed, forgot to link the commit to this ticket. Thanks for
+the patch.&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427983</id>
+    <published>2008-10-05T18:21:33+01:00</published>
+    <updated>2008-10-05T18:21:33+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/changesets/2bf58aa782d3b493f2d98f153324b93c5b058ba6"/>
+    <author>
+      <name>Repository</name>
+    </author>
+    <title type="html">Ruby on Rails: Changeset [2bf58aa782d3b493f2d98f153324b93c5b058ba6] by Matt Jones</title>
+    <content type="html">&lt;div&gt;&lt;p&gt;Fix a number of errors in the config.gem mechanism.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Rails::GemDependency was missing definitions for hash and eql?,
+causing Array#uniq to not work.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If several versions of a gem are unpacked in vendor, now chooses
+the highest if no version is specified.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;streamlined add_load_path. Now sets up Rubygems correctly to
+allow 'gem' to find frozen gems, with gems frozen to vendor/gems
+and specifications in
+vendor/gems/&amp;lt;gem-name&amp;gt;/.specification&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Rails::GemDependency#specification would return a spec for the
+highest installed version, even for frozen gems and/or previously
+loaded lower versions. See in part ticket &lt;a href="/projects/8994/tickets/1123" title="Ticket #1123"&gt;#1123&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;removed vendor from default_load_paths - it was causing
+autoloading to append Gems::Gems::&amp;lt;gem-dir&amp;gt; to constant
+names&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;added additional tests for loading frozen gems.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;incorporates the fix from &lt;a href="/projects/8994/tickets/1107" title="Ticket #1107"&gt;#1107&lt;/a&gt; for vendor rails&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;defers to freeze:gems for handling the Rails framework.
+gems:unpack WILL NOT place a copy of Rails in vendor/gems. Should
+close &lt;a href="/projects/8994/tickets/1123" title="Ticket #1123"&gt;#1123&lt;/a&gt; completely.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;incorporates, via using the gem loader for frozen gems, fixes
+corresponding to &lt;a href="/projects/8994/tickets/227" title="Ticket #227"&gt;#227&lt;/a&gt;, &lt;a href="/projects/8994/tickets/324" title="Ticket #324"&gt;#324&lt;/a&gt;, &lt;a href="/projects/8994/tickets/362" title="Ticket #362"&gt;#362&lt;/a&gt;, &lt;a href="/projects/8994/tickets/527" title="Ticket #527"&gt;#527&lt;/a&gt;, and &lt;a href="/projects/8994/tickets/742" title="Ticket #742"&gt;#742&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gem plugins now work the same whether frozen or not. Correctness
+of the behavior is a matter for another ticket...&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Signed-off-by: rick &lt;a href="mailto:technoweenie@gmail.com"&gt;technoweenie@gmail.com&lt;/a&gt; &lt;a href="http://github.com/rails/rails/commit/2bf58aa782d3b493f2d98f153324b93c5b058ba6"&gt;
+http://github.com/rails/rails/co...&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427974</id>
+    <published>2008-10-05T18:17:39+01:00</published>
+    <updated>2008-10-05T18:17:40+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/692"/>
+    <author>
+      <name>iGEL</name>
+    </author>
+    <title type="html">Ruby on Rails: Defining routes with symbols failes [#692]</title>
+    <content type="html">&lt;li&gt;&amp;#x2192; Tag changed from &lt;em class="change"&gt;&amp;#147;2.1 actionpack routing&amp;#148;&lt;/em&gt; to &lt;em class="change"&gt;&amp;#147;&amp;quot;2.1&amp;quot; actionpack routing&amp;#148;&lt;/em&gt;&lt;/li&gt;
+&lt;div&gt;&lt;p&gt;Since I couldn't think of a way to test the solution described
+above, I found another one. The :controller and :action are now
+converted to a string, if they were a symbol before. Test is
+included.&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427802</id>
+    <published>2008-10-05T17:00:45+01:00</published>
+    <updated>2008-10-05T17:00:46+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/1176"/>
+    <author>
+      <name>takahashim</name>
+    </author>
+    <title type="html">Ruby on Rails: script/server make an error in Ruby 1.9 because of defined? method's change [#1176]</title>
+    <content type="html">&lt;div&gt;&lt;p&gt;The behavior of defined? method is changed in Ruby 1.9.&lt;/p&gt;
+&lt;p&gt;$ ruby -ve 'require "rubygems";p
+defined?(Gem::RubyGemsVersion);x=Gem::RubyGemsVersion;p
+defined?(Gem::RubyGemsVersion)' ruby 1.8.6 (2008-03-03 patchlevel
+114) [universal-darwin9.0] "constant" "constant"&lt;/p&gt;
+&lt;p&gt;$ ~/ruby190_20080928/bin/ruby -ve 'require "rubygems";p
+defined?(Gem::RubyGemsVersion);x=Gem::RubyGemsVersion;p
+defined?(Gem::RubyGemsVersion)' ruby 1.9.0 (2008-10-02 revision
+15736) [i386-darwin9.5.0] nil "constant"&lt;/p&gt;
+&lt;p&gt;So, current rails is broken in Ruby 1.9.0.&lt;/p&gt;
+&lt;p&gt;$ ~/ruby190_20080928/bin/ruby -v script/server ruby 1.9.0
+(2008-10-02 revision 15736) [i386-darwin9.5.0]
+/Users/maki/tmp/test3/config/boot.rb:86:in &lt;code&gt;load_rubygems':
+undefined method&lt;/code&gt;&amp;gt;=' for nil:NilClass (NoMethodError)&lt;/p&gt;
+&lt;pre&gt;
+&lt;code&gt;from /Users/maki/tmp/test3/config/boot.rb:52:in `load_initializer'
+from /Users/maki/tmp/test3/config/boot.rb:38:in `run'
+from /Users/maki/tmp/test3/config/boot.rb:11:in `boot!'
+from /Users/maki/tmp/test3/config/boot.rb:109:in `&amp;lt;top (required)&amp;gt;'
+from script/server:2:in `require'
+from script/server:2:in `&amp;lt;main&amp;gt;'
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;This change of defined? seems to be specification of Ruby 1.9.
+In Changelog, Matz wrote:&lt;/p&gt;
+&lt;p&gt;Mon Aug 25 23:01:17 2008 Yukihiro Matsumoto &lt;a href="mailto:matz@ruby-lang.org"&gt;matz@ruby-lang.org&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;
+&lt;code&gt;* compile.c (defined_expr): default defined? should return
+  "expression" without evaluating the expression.  [ruby-dev:35967]
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;I wrote a patch for the problem.&lt;/p&gt;
+&lt;p&gt;Thanks in advance,&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427631</id>
+    <published>2008-10-05T15:43:30+01:00</published>
+    <updated>2008-10-05T15:43:31+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/1055"/>
+    <author>
+      <name>thesmith</name>
+    </author>
+    <title type="html">Ruby on Rails: ActiveResource transfer of 'serialize :foo, Array' (YAML) attributes fails [#1055]</title>
+    <content type="html">&lt;div&gt;&lt;p&gt;Has there been any movement with this? I have tested the patch
+against a track.search feed from last.fm and it stops
+ActiveResource from raising an exception on multiple leaf
+elements.&lt;/p&gt;
+&lt;p&gt;What release will this be part of?&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427587</id>
+    <published>2008-10-05T15:22:10+01:00</published>
+    <updated>2008-10-05T15:22:11+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/1154"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: Deprecated method of setting relative_url_root inside RailsConfigurator [#1154]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427584</id>
+    <published>2008-10-05T15:20:30+01:00</published>
+    <updated>2008-10-05T15:20:30+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/525"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: ActiveResource custom method #post broken [#525]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427583</id>
+    <published>2008-10-05T15:18:49+01:00</published>
+    <updated>2008-10-05T15:18:50+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/542"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: Calculation queries do not take eager loading into account [#542]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427582</id>
+    <published>2008-10-05T15:18:38+01:00</published>
+    <updated>2008-10-05T15:18:39+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/270"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: Can't use :references in add_column [#270]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427581</id>
+    <published>2008-10-05T15:18:23+01:00</published>
+    <updated>2008-10-05T15:18:23+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/543"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: Logging from rake tasks is broken in production environment [#543]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427580</id>
+    <published>2008-10-05T15:17:57+01:00</published>
+    <updated>2008-10-05T15:17:58+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/548"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: has_many :through w/ condition returns invalid included records [#548]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427577</id>
+    <published>2008-10-05T15:17:36+01:00</published>
+    <updated>2008-10-05T15:17:37+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/546"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: Error in AR::AssociationPreload::ClassMethods#preload_associations when records are from multiple classes [#546]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427576</id>
+    <published>2008-10-05T15:17:00+01:00</published>
+    <updated>2008-10-05T15:17:01+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/519"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: Migration error with rails 2.1 and drop_table -- still looking for schema_info [#519]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427573</id>
+    <published>2008-10-05T15:16:20+01:00</published>
+    <updated>2008-10-05T15:16:20+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/531"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: bug in ActionView::Helpers::FormBuilder [#531]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427572</id>
+    <published>2008-10-05T15:15:59+01:00</published>
+    <updated>2008-10-05T15:15:59+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/529"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: activesupport 1.4.4 not checking for nil object properly? [#529]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427570</id>
+    <published>2008-10-05T15:15:08+01:00</published>
+    <updated>2008-10-05T15:15:09+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/431"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: Table-modifying methods lead to inconsistent objects [#431]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427569</id>
+    <published>2008-10-05T15:14:38+01:00</published>
+    <updated>2008-10-05T15:14:38+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/403"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: Mocha is required by setup_and_teardown.rb in all environments and modes [#403]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427568</id>
+    <published>2008-10-05T15:13:52+01:00</published>
+    <updated>2008-10-05T15:13:53+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/tickets/522"/>
+    <author>
+      <name>Joshua Peek</name>
+    </author>
+    <title type="html">Ruby on Rails: Rails 2.1 MySQL 6.0 schema_migrations index problem [#522]</title>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427559</id>
+    <published>2008-10-05T15:09:20+01:00</published>
+    <updated>2008-10-05T15:09:20+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/changesets/03a6f74bdd8d0164525fa9bf89087be1160d6d6f"/>
+    <author>
+      <name>Repository</name>
+    </author>
+    <title type="html">Ruby on Rails: Changeset [03a6f74bdd8d0164525fa9bf89087be1160d6d6f] by Michael Koziarski</title>
+    <content type="html">&lt;div&gt;&lt;p&gt;Reference more detailed documentation on the country_select
+issue rather than just recommending the country_select plugin.
+&lt;a href="http://github.com/rails/rails/commit/03a6f74bdd8d0164525fa9bf89087be1160d6d6f"&gt;
+http://github.com/rails/rails/co...&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+  <entry>
+    <id>tag:rails.lighthouseapp.com,2008-03-29:Event/1427560</id>
+    <published>2008-10-05T15:09:20+01:00</published>
+    <updated>2008-10-05T15:09:20+01:00</updated>
+    <link type="text/html" rel="alternate" href="http://rails.lighthouseapp.com/projects/8994/changesets/cebfb5c90843e214f445edeab0ee1ece13c39ed9"/>
+    <author>
+      <name>Repository</name>
+    </author>
+    <title type="html">Ruby on Rails: Changeset [cebfb5c90843e214f445edeab0ee1ece13c39ed9] by Michael Koziarski</title>
+    <content type="html">&lt;div&gt;&lt;p&gt;Update to 2.2 in the warnings &lt;a href="http://github.com/rails/rails/commit/cebfb5c90843e214f445edeab0ee1ece13c39ed9"&gt;
+http://github.com/rails/rails/co...&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</content>
+  </entry>
+</feed>

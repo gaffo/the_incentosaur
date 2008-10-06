@@ -4,6 +4,8 @@
     <dict>
         <key>fileTriggers</key>
         <dict>
+            <key>author_fee</key>
+            <string>app\models\author_feed.rb</string>
             <key>database.</key>
             <string>config\database.yml</string>
             <key>defalt.</key>
@@ -11,6 +13,8 @@
             <key>default.c</key>
             <string>public\stylesheets\default.css</string>
             <key>feed_tes</key>
+            <string>test\unit\feed_test.rb</string>
+            <key>feed_test</key>
             <string>test\unit\feed_test.rb</string>
             <key>feed_type</key>
             <string>test\unit\feed_type_test.rb</string>
@@ -20,6 +24,12 @@
             <string>app\controllers\admin\feed_types_controller.rb</string>
             <key>home_con</key>
             <string>app\controllers\home_controller.rb</string>
+            <key>macros</key>
+            <string>vendor\plugins\shoulda\lib\shoulda\macros.rb</string>
+            <key>macros.rb</key>
+            <string>vendor\plugins\shoulda\lib\shoulda\active_record\macros.rb</string>
+            <key>post.rb</key>
+            <string>app\models\post.rb</string>
             <key>routes</key>
             <string>vendor\rails\railties\lib\tasks\routes.rake</string>
             <key>routes.</key>

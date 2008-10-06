@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
+  <id>tag:github.com,2008:/feeds/rails/commits/rails</id>
+  <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commits/master/"/>
+  <link type="application/atom+xml" rel="self" href="http://github.com/feeds/rails/commits/rails"/>
+  <title>Recent Commits to rails:master</title>
+  <updated>2008-10-05T15:25:58-07:00</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/8603813ac6e1bff8d3addad58d0a56b33baafc59</id>
+    <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commit/8603813ac6e1bff8d3addad58d0a56b33baafc59"/>
+    <title>Fix memoize_all for methods with punctuation [#1175 state:resolved]</title>
+    <updated>2008-10-05T15:25:58-07:00</updated>
+    <content type="html">&lt;pre&gt;m activesupport/lib/active_support/memoizable.rb
+m activesupport/test/memoizable_test.rb
+
+Fix memoize_all for methods with punctuation [#1175 state:resolved]
+Signed-off-by: Joshua Peek &amp;lt;josh@joshpeek.com&amp;gt;&lt;/pre&gt;</content>
+    <author>
+      <name>Eugene Pimenov</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/1c75b4fd42c707ce3d539e8453784b4abf74e035</id>
+    <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commit/1c75b4fd42c707ce3d539e8453784b4abf74e035"/>
+    <title>Fix deprecated ActionController::Base.relative_url_root call in mongrel command</title>
+    <updated>2008-10-05T15:25:57-07:00</updated>
+    <content type="html">&lt;pre&gt;m railties/lib/rails/mongrel_server/commands.rb
+
+Fix deprecated ActionController::Base.relative_url_root call in mongrel command
+Signed-off-by: Joshua Peek &amp;lt;josh@joshpeek.com&amp;gt;&lt;/pre&gt;</content>
+    <author>
+      <name>Chris Cherry</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/a2932784bb71e72a78c32819ebd7ed2bed551e3e</id>
+    <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commit/a2932784bb71e72a78c32819ebd7ed2bed551e3e"/>
+    <title>Merge docrails</title>
+    <updated>2008-10-05T14:16:26-07:00</updated>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/4df45d86097efbeabceecfe53d8ea2da9ccbb107</id>
+    <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commit/4df45d86097efbeabceecfe53d8ea2da9ccbb107"/>
+    <title>ActiveResource can load array of strings, like serialize :bar, Array</title>
+    <updated>2008-10-05T10:29:13-07:00</updated>
+    <content type="html">&lt;pre&gt;m activeresource/lib/active_resource/base.rb
+m activeresource/test/base_test.rb
+
+ActiveResource can load array of strings, like serialize :bar, Array
+
+Signed-off-by: rick &amp;lt;technoweenie@gmail.com&amp;gt;
+[#1055 state:resolved]&lt;/pre&gt;</content>
+    <author>
+      <name>Matthew Moore</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/2bf58aa782d3b493f2d98f153324b93c5b058ba6</id>
+    <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commit/2bf58aa782d3b493f2d98f153324b93c5b058ba6"/>
+    <title>Fix a number of errors in the config.gem mechanism.</title>
+    <updated>2008-10-05T10:16:17-07:00</updated>
+    <content type="html">&lt;pre&gt;m railties/lib/initializer.rb
+m railties/lib/rails/gem_builder.rb
+m railties/lib/rails/gem_dependency.rb
+m railties/lib/rails/plugin.rb
+m railties/lib/rails/vendor_gem_source_index.rb
+m railties/lib/tasks/gems.rake
+m railties/test/gem_dependency_test.rb
+m railties/test/vendor/gems/dummy-gem-a-0.4.0/.specification
+m railties/test/vendor/gems/dummy-gem-a-0.4.0/lib/dummy-gem-a.rb
+m railties/test/vendor/gems/dummy-gem-b-0.4.0/.specification
+m railties/test/vendor/gems/dummy-gem-b-0.4.0/lib/dummy-gem-b.rb
+m railties/test/vendor/gems/dummy-gem-b-0.6.0/.specification
+m railties/test/vendor/gems/dummy-gem-b-0.6.0/lib/dummy-gem-b.rb
+m railties/test/vendor/gems/dummy-gem-c-0.4.0/.specification
+m railties/test/vendor/gems/dummy-gem-c-0.4.0/lib/dummy-gem-c.rb
+m railties/test/vendor/gems/dummy-gem-c-0.6.0/.specification
+m railties/test/vendor/gems/dummy-gem-c-0.6.0/lib/dummy-gem-c.rb
+
+Fix a number of errors in the config.gem mechanism.
+
+* Rails::GemDependency was missing definitions for hash and eql?, causing Array#uniq to not work.
+
+* If several versions of a gem are unpacked in vendor, now chooses the highest if no version is specified.
+
+* streamlined add_load_path. Now sets up Rubygems correctly to allow 'gem' to find frozen gems, with
+  gems frozen to vendor/gems and specifications in vendor/gems/&amp;lt;gem-name&amp;gt;/.specification
+
+* Rails::GemDependency#specification would return a spec for the highest installed version, even for
+  frozen gems and/or previously loaded lower versions. See in part ticket #1123.
+
+* removed vendor from default_load_paths - it was causing autoloading to append Gems::Gems::&amp;lt;gem-dir&amp;gt; to
+  constant names
+
+* added additional tests for loading frozen gems.
+
+* incorporates the fix from #1107 for vendor rails
+
+* defers to freeze:gems for handling the Rails framework. gems:unpack WILL NOT place a copy of Rails
+  in vendor/gems. Should close #1123 completely.
+
+* incorporates, via using the gem loader for frozen gems, fixes corresponding to #227, #324, #362, #527, and #742.
+
+* gem plugins now work the same whether frozen or not. Correctness of the behavior is a matter for another ticket...
+
+Signed-off-by: rick &amp;lt;technoweenie@gmail.com&amp;gt;&lt;/pre&gt;</content>
+    <author>
+      <name>Matt Jones</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/4f53db0096be4b167628a136044b0d1262215277</id>
+    <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commit/4f53db0096be4b167628a136044b0d1262215277"/>
+    <title>Move controller ivar copying to a separate method</title>
+    <updated>2008-10-05T06:01:00-07:00</updated>
+    <content type="html">&lt;pre&gt;m actionpack/lib/action_view/base.rb
+
+Move controller ivar copying to a separate method&lt;/pre&gt;</content>
+    <author>
+      <name>Pratik Naik</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/259a7a844b53b7d508145cc61fed9e11581e5409</id>
+    <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commit/259a7a844b53b7d508145cc61fed9e11581e5409"/>
+    <title>Add tests for ActiveSupport::Rescuable. Use ActiveSupport::Rescuable in ActionController::Base.</title>
+    <updated>2008-10-04T14:13:50-07:00</updated>
+    <content type="html">&lt;pre&gt;m actionpack/lib/action_controller/rescue.rb
+m activesupport/CHANGELOG
+m activesupport/lib/active_support.rb
+m activesupport/lib/active_support/rescuable.rb
+m activesupport/test/rescuable_test.rb
+
+Add tests for ActiveSupport::Rescuable. Use ActiveSupport::Rescuable in ActionController::Base.&lt;/pre&gt;</content>
+    <author>
+      <name>Pratik Naik</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/964dfc15572d7c10771c81ac3cbfb455dd5e378e</id>
+    <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commit/964dfc15572d7c10771c81ac3cbfb455dd5e378e"/>
+    <title>First draft of ActiveSupport::Rescuable</title>
+    <updated>2008-10-04T12:28:08-07:00</updated>
+    <content type="html">&lt;pre&gt;m activesupport/lib/active_support/rescuable.rb
+
+First draft of ActiveSupport::Rescuable
+
+Signed-off-by: Pratik Naik &amp;lt;pratiknaik@gmail.com&amp;gt;&lt;/pre&gt;</content>
+    <author>
+      <name>Norbert Crombach</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/9599948fbcd67c1c2c5fecc2dca148e998479e33</id>
+    <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commit/9599948fbcd67c1c2c5fecc2dca148e998479e33"/>
+    <title>Ensure Model.sum and Model.avg typecast appropriately. [#1066 state:resolved]</title>
+    <updated>2008-10-04T12:13:44-07:00</updated>
+    <content type="html">&lt;pre&gt;m activerecord/lib/active_record/calculations.rb
+m activerecord/test/cases/calculations_test.rb
+
+Ensure Model.sum and Model.avg typecast appropriately. [#1066 state:resolved]
+
+Model.sum delegates typecasting to the column being summed. If that's not feasible, returns a string.
+Model.avg always returns big decimal.&lt;/pre&gt;</content>
+    <author>
+      <name>Pratik Naik</name>
+    </author>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/1dfebd4f0d25ecf50ba4e320234523d9ee3f7523</id>
+    <link type="text/html" rel="alternate" href="http://github.com/rails/rails/commit/1dfebd4f0d25ecf50ba4e320234523d9ee3f7523"/>
+    <title>1.8 compatibility for random_number method on SecureRandom.</title>
+    <updated>2008-10-04T12:11:30-07:00</updated>
+    <content type="html">&lt;pre&gt;m activesupport/lib/active_support/secure_random.rb
+m activesupport/test/secure_random_test.rb
+
+1.8 compatibility for random_number method on SecureRandom.
+
+1.9 has its own version.&lt;/pre&gt;</content>
+    <author>
+      <name>Michael Koziarski</name>
+    </author>
+  </entry>
+</feed>
