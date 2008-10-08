@@ -28,6 +28,8 @@
             <string>app\controllers\admin\feed_types_controller.rb</string>
             <key>feeds_</key>
             <string>test\integration\admin\feeds_test.rb</string>
+            <key>feeds_con</key>
+            <string>app\controllers\admin\feeds_controller.rb</string>
             <key>home_con</key>
             <string>app\controllers\home_controller.rb</string>
             <key>macros</key>

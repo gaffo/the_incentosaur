@@ -11,19 +11,13 @@ class Feed < ActiveRecord::Base
 	def load_current_from_feed
 		pull_current_from_feed.each do |p|
 			next unless p[:author]
-			conditions =  {:name => p[:author], 
-						   :feed_id => self.id}
-			if AuthorFeed.exists?(conditions)
-				author = AuthorFeed.find(:first, :conditions => conditions)
-			else	
-				author = AuthorFeed.create(:name => p[:author],
-										   :feed_id => self.id)
-				author.save!
-			end
-			post = Post.new(:idkey => p[:idkey], 
-										:author_feed_id => author.id,
-										:feed_id => self.id)
-						post.save!
+			author = AuthorFeed.find_or_create_by_feed_id_and_name(self.id, p[:author])
+			author.save!
+			post = Post.find_or_create_by_author_feed_idkey(
+							author,
+							self,
+							p[:idkey])
+			post.save!
 		end
 	end
 	
