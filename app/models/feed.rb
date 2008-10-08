@@ -24,17 +24,15 @@ class Feed < ActiveRecord::Base
 	def pull_current_from_feed
 		doc = pull_feed
 		
-		ids = []
-		authors = []
+		posts = []
 		
-		doc.elements.each(self.id_xpath){|e| ids << e.text}
-		doc.elements.each(self.author_xpath){|a| authors << a.text}
-		
-		values = []
-		for i in 0..(ids.size - 1)
-			values[i] = {:idkey => ids[i], :author => authors[i]}
+		doc.elements.each(self.entry_xpath) do |entry|
+			post = Post.new(:idkey => entry.elements[self.id_xpath],
+							:author_feed => entry.elements[self.author_xpath],
+							:full_post => entry.to_s)
+			posts << post
 		end
-		values
+		posts
 	end
 	
 	protected
