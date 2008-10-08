@@ -1,10 +1,9 @@
 class Feed < ActiveRecord::Base
 	has_many :posts
-	validates_presence_of :name, :url
+	validates_presence_of :name, :url, :id_xpath, :author_xpath, :entry_xpath
 	
 	def self.load_all_feeds
 		Feed.find(:all).each do |f|
-			puts "Loading Feed: #{f.name}:#{f.id}"
 		 	f.load_current_from_feed	
 		end
 	end
@@ -12,7 +11,6 @@ class Feed < ActiveRecord::Base
 	def load_current_from_feed
 		pull_current_from_feed.each do |p|
 			next unless p[:author]
-			puts "#{p[:author]}, #{p[:idkey]}"
 			conditions =  {:name => p[:author], 
 						   :feed_id => self.id}
 			if AuthorFeed.exists?(conditions)
