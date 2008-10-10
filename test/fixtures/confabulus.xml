@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	>
+
+<channel>
+	<title>confabulus</title>
+	<atom:link href="http://blog.confabulus.com/feed/" rel="self" type="application/rss+xml" />
+	<link>http://blog.confabulus.com</link>
+	<description>rails, coding, and the goings on at confabulus</description>
+	<pubDate>Wed, 24 Sep 2008 03:32:55 +0000</pubDate>
+	<generator>http://wordpress.org/?v=2.6.1</generator>
+	<language>en</language>
+			<item>
+		<title>new has_a block</title>
+		<link>http://blog.confabulus.com/2008/09/23/new-has_a-block/</link>
+		<comments>http://blog.confabulus.com/2008/09/23/new-has_a-block/#comments</comments>
+		<pubDate>Wed, 24 Sep 2008 03:29:00 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		
+		<category><![CDATA[Uncategorized]]></category>
+
+		<category><![CDATA[rails]]></category>
+
+		<category><![CDATA[snippets]]></category>
+
+		<guid isPermaLink="false">http://blog.confabulus.com/?p=12</guid>
+		<description><![CDATA[Pretty simple post, but any ruby object can be post conifged in a line with somthing like:
+User.new(:name =&#62; &#8220;tony&#8221;){&#124;u&#124; u.save}
+which is great for active record tests.
+Or in a bigger example:
+
+@trip = Trip.new{&#124;t&#124; t.save!}
+@invite1 = Invitation.new(:user =&#62; users(:aaron),
+                   [...]]]></description>
+			<content:encoded><![CDATA[<p>Pretty simple post, but any ruby object can be post conifged in a line with somthing like:</p>
+<p>User.new(:name =&gt; &#8220;tony&#8221;){|u| u.save}</p>
+<p>which is great for active record tests.</p>
+<p>Or in a bigger example:</p>
+<pre class="syntax-highlight:ruby">
+@trip = Trip.new{|t| t.save!}
+@invite1 = Invitation.new(:user =&gt; users(:aaron),
+                                   :status =&gt; Invitation::STATUS_MAYBE){|i| i.save}
+@invite1 = Invitation.new(:user =&gt; users(:aaron),
+                                   :status =&gt; Invitation::STATUS_MAYBE){|i| i.save}
+</pre>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.confabulus.com/2008/09/23/new-has_a-block/feed/</wfw:commentRss>
+		</item>
+		<item>
+		<title>rcov and rails</title>
+		<link>http://blog.confabulus.com/2008/06/11/rcov-and-rails/</link>
+		<comments>http://blog.confabulus.com/2008/06/11/rcov-and-rails/#comments</comments>
+		<pubDate>Thu, 12 Jun 2008 02:05:31 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		
+		<category><![CDATA[rails]]></category>
+
+		<category><![CDATA[testing]]></category>
+
+		<category><![CDATA[rcov]]></category>
+
+		<guid isPermaLink="false">http://blog.confabulus.com/?p=9</guid>
+		<description><![CDATA[rcov and Rails
+I had the good fortune of attending Rails Conf recently on behalf of the consulting company I work for, Asynchrony Solutions. One of the topics at the great Refactotem tutorial (hosted by the guys from Relevance) was rcov, a code coverage tool for Ruby. One of the things I missed in, or was [...]]]></description>
+			<content:encoded><![CDATA[<p>rcov and Rails<br />
+I had the good fortune of attending Rails Conf recently on behalf of the consulting company I work for, <a href="http://www.asolutions.com">Asynchrony Solutions</a>. One of the topics at the great Refactotem tutorial (hosted by the guys from <a href="http://thinkrelevance.com/">Relevance</a>) was <a href="http://eigenclass.org/hiki.rb?rcov">rcov</a>, a code coverage tool for Ruby. One of the things I missed in, or was neglected from, the talk was how to actually run coverage tasks against Rails. So I thought I would share the code to make the test:coverage task that I found with some digging.</p>
+<p>Add the following to the Rakefile in the root of your rails app:</p>
+<pre class="syntax-highlight:ruby">
+require &#039;rcov/rcovtask&#039;
+
+namespace :test do
+namespace :coverage do
+desc &quot;Delete aggregate coverage data.&quot;
+task(:clean) { rm_f &quot;coverage.data&quot; }
+end
+desc &#039;Aggregate code coverage for unit, functional and integration tests&#039;
+  task :coverage =&gt; &quot;test:coverage:clean&quot;
+    %w[unit functional integration].each do |target|
+    namespace :coverage do
+      Rcov::RcovTask.new(target) do |t|
+      t.libs &lt;&lt; &quot;test&quot;
+      t.test_files = FileList[&quot;test/#{target}/*_test.rb&quot;]
+      t.output_dir = &quot;test/coverage/#{target}&quot;
+      t.verbose = true
+      t.rcov_opts &lt;&lt; &#039;--rails --aggregate coverage.data&#039;
+    end
+  end
+  task :coverage =&gt; &quot;test:coverage:#{target}&quot;
+  end
+end
+</pre>
+<p>You can then run rcov on  your rails app by running:<br />
+<code><br />
+rake test:coverage</code></p>
+<p>After this completes, it will output index.html files in RAILS_ROOT/tests/coverage/[units, functional, integration]. There is no overall index file, as, if you read the rake task, it is running rcov separately for each of [units, functional, integration].</p>
+<p>Rcov has a few things to work out like showing untested code in modules sometimes, but otherwise it gives you a good idea of sections and branches of your code that are not tested. It’s very easy to set up so why not give it a try. But remember, metrics can only help point out problem spots in your code, they are not a replacement for good coding techniques.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.confabulus.com/2008/06/11/rcov-and-rails/feed/</wfw:commentRss>
+		</item>
+		<item>
+		<title>ruby on rails (2.0.1, 2.0.2) and oracle on FC8</title>
+		<link>http://blog.confabulus.com/2008/06/04/ruby-on-rails-201-202-and-oracle-on-fc8/</link>
+		<comments>http://blog.confabulus.com/2008/06/04/ruby-on-rails-201-202-and-oracle-on-fc8/#comments</comments>
+		<pubDate>Thu, 05 Jun 2008 02:58:16 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		
+		<category><![CDATA[configuration]]></category>
+
+		<category><![CDATA[installation]]></category>
+
+		<category><![CDATA[oracle]]></category>
+
+		<guid isPermaLink="false">http://blog.confabulus.com/?p=5</guid>
+		<description><![CDATA[Get the following rpm&#8217;s from oracle
+
+oracle-instantclient-basic-10.2.0.3-1.i386.rpm
+oracle-instantclient-devel-10.2.0.3-1.i386.rpm
+
+(Note: this should work fine with the newer versions as well)
+As root
+
+cd PATH_TO_RPMS
+rpm -ivh oracle-instantclient-basic-10.2.0.3-1.i386.rpm oracle-instantclient-devel-10.2.0.3-1.i386.rpm
+echo /usr/lib/oracle/10.2.0.3/client/lib/ &#62; /etc/ld.so.conf.d/oracle-instant-client-i386.conf
+
+This last step, the echo, is a bit of magic. The conf files in /etc/ld.so.conf.d are run before each command is invoked to set your library path. The enviroment variable $LD_LIBRARY_PATH overrides [...]]]></description>
+			<content:encoded><![CDATA[<p><strong>Get the following rpm&#8217;s from oracle</strong></p>
+<ul>
+<li>oracle-instantclient-basic-10.2.0.3-1.i386.rpm</li>
+<li>oracle-instantclient-devel-10.2.0.3-1.i386.rpm</li>
+</ul>
+<p>(Note: this should work fine with the newer versions as well)</p>
+<p><strong>As root</strong></p>
+<pre class="syntax-highlight:bash">
+cd PATH_TO_RPMS
+rpm -ivh oracle-instantclient-basic-10.2.0.3-1.i386.rpm oracle-instantclient-devel-10.2.0.3-1.i386.rpm
+echo /usr/lib/oracle/10.2.0.3/client/lib/ &gt; /etc/ld.so.conf.d/oracle-instant-client-i386.conf
+</pre>
+<p>This last step, the echo, is a bit of magic. The conf files in /etc/ld.so.conf.d are run before each command is invoked to set your library path. The enviroment variable $LD_LIBRARY_PATH overrides these. You won&#8217;t see the contents of these files in your $LD_LIBRARY_PATH, but the application will. If your distribution doesn&#8217;t have an /etc/ld.so.conf.d directory, you can just add /usr/lib/oracle/10.2.0.3/client/lib to your LD_LIBRARY_PATH inthe /etc/profile, ~/.bash_profile, or any of the other more common places.</p>
+<p>Now you need to find the latest ruby-oci8, check <a href="http://ar.rubyonrails.com/">http://ar.rubyonrails.com/</a> and put it in /usr/local/src/</p>
+<pre class="syntax-highlight:bash">
+wget http://rubyforge.org/frs/download.php/36134/ruby-oci8-1.0.1.tar.gz
+tar -xzvf ruby-oci8-1.0.1.tar.gz
+cd ruby-oci8-1.0.1
+ruby setup.rb config
+make
+make install
+</pre>
+<p>The previous versions of oci8 and ora instant clients required that you make several symlinks, and was a pain to set up. With the current oci8 and the instant clients on your LD_LIBRARY_PATH, the compile and install should work just fine.</p>
+<p>With rails 2.1 out, the activerecord-oracle-adapter is no longer hosted on gems.rubyonrails.org. You can see this with a &#8220;gem list -r &#8211;source http://gems.rubyonrails.org&#8221;. So you have to do the ugly method of directly grabbing the adapter yourself. It is very easy though:</p>
+<pre class="syntax-highlight:bash">
+wget -P /usr/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/  http://svn.rubyonrails.org/rails/adapters/oracle/lib/active_record/connection_adapters/oracle_adapter.rb
+</pre>
+<p>That&#8217;s it. Just remember to make sure that you grab the right versions of everything.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.confabulus.com/2008/06/04/ruby-on-rails-201-202-and-oracle-on-fc8/feed/</wfw:commentRss>
+		</item>
+		<item>
+		<title>laying out sections using content_for</title>
+		<link>http://blog.confabulus.com/2008/06/01/layout-partials-with-content_for/</link>
+		<comments>http://blog.confabulus.com/2008/06/01/layout-partials-with-content_for/#comments</comments>
+		<pubDate>Mon, 02 Jun 2008 02:17:28 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		
+		<category><![CDATA[musings]]></category>
+
+		<category><![CDATA[content_for]]></category>
+
+		<category><![CDATA[layouts]]></category>
+
+		<category><![CDATA[rails]]></category>
+
+		<guid isPermaLink="false">http://blog.confabulus.com/?p=4</guid>
+		<description><![CDATA[For the new style changes for confabulus, I made use of the content_for capabilities in rails. The currently has two sections, main and sidebar. content_for makes implementing this quite easy. In your layout file (example application.html.erb under app/views/layouts), you use a  to place each of the sctions. Here I used  to include my [...]]]></description>
+			<content:encoded><![CDATA[<p>For the new style changes for confabulus, I made use of the content_for capabilities in rails. The currently has two sections, main and sidebar. <code>content_for</code> makes implementing this quite easy. In your layout file (example application.html.erb under app/views/layouts), you use a <code><%= yield :sectionname %></code> to place each of the sctions. Here I used <code><%= yield :sidebar %></code> to include my sidebar section. <code>:sidebar</code> is just the name I chose for the section.</p>
+<pre class="syntax-highlight:ruby">
+&lt;div class=&quot;right&quot; id=&quot;main_right&quot;&gt;
+&lt;div id=&quot;sidebar&quot;&gt;
+&lt;%= yield :sidebar%&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<p>Then in the view for the page, you need to define the content for each section, for sidebar I have:</p>
+<pre class="syntax-highlight:ruby">
+&lt;% content_for :sidebar do %&gt;
+&lt;h2&gt;Please Login&lt;/h2&gt;
+&lt;div class=&quot;content&quot;&gt;
+... full view code omitted ...
+&lt;% end %&gt;
+</pre>
+<p>So my views are of the form of:</p>
+<pre class="syntax-highlight:ruby">
+&lt;% content_for :sidebar do %&gt;
+... sidebar content goes here ...
+&lt;% end %&gt;
+&lt;% content_for :main do %&gt;
+... main content goes here ...
+&lt;% end %&gt;</pre>
+<p>You can do this for an arbitrary number of sections.<br />
+One thing to note is that if you are converting and forget to put a content_for block around the code, your view will render empty.</p>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.confabulus.com/2008/06/01/layout-partials-with-content_for/feed/</wfw:commentRss>
+		</item>
+		<item>
+		<title>New Layout, Contact Lists, Registration/Forgot Password Added</title>
+		<link>http://blog.confabulus.com/2008/06/01/recent-major-update/</link>
+		<comments>http://blog.confabulus.com/2008/06/01/recent-major-update/#comments</comments>
+		<pubDate>Mon, 02 Jun 2008 00:55:32 +0000</pubDate>
+		<dc:creator>admin</dc:creator>
+		
+		<category><![CDATA[confabulus updates]]></category>
+
+		<category><![CDATA[confabulus]]></category>
+
+		<category><![CDATA[layouts]]></category>
+
+		<category><![CDATA[rails]]></category>
+
+		<guid isPermaLink="false">http://blog.confabulus.com/?p=3</guid>
+		<description><![CDATA[I just pushed out a large upgrade that I did while on Jury Duty and at Rails Conf. New features include:
+
+New design (Much cleaner and easier for me to group elements)
+Removed extra pages for managing cars, flights, and hotel rooms (I&#8217;m trying to keep all of the main work flow on one page.
+Added the ability [...]]]></description>
+			<content:encoded><![CDATA[<p>I just pushed out a large upgrade that I did while on Jury Duty and at Rails Conf. New features include:</p>
+<ul>
+<li>New design (Much cleaner and easier for me to group elements)</li>
+<li>Removed extra pages for managing cars, flights, and hotel rooms (I&#8217;m trying to keep all of the main work flow on one page.</li>
+<li>Added the ability to maintain a contact list. Contact lists are a grouping of people who you&#8217;ve already been on a trip with. So if you do the same type of trip with the same people all the time, you can just add all from that contact list. Contact lists are managed on the user&#8217;s homepage and invitations are sent from the invite page (linked from the trip overview page).</li>
+<li>Registration: The register link is now visible and now works. Also, if a person wants to change their info from an invitation, it will register them as well.</li>
+<li>Forgot Password: if you forget your password, you can now click a link and get an email that will let you reset it. This was a big stopping block to going public.</li>
+</ul>
+]]></content:encoded>
+			<wfw:commentRss>http://blog.confabulus.com/2008/06/01/recent-major-update/feed/</wfw:commentRss>
+		</item>
+	</channel>
+</rss>
