@@ -1,8 +1,6 @@
 require 'test_helper'
 
-class Admin::UsersControllerTest < ActionController::IntegrationTest
-	
-	tests 'admin/users_controller'
+class Admin::UsersTest < ActionController::IntegrationTest
 	
 	def test_index
       visits admin_users_url
