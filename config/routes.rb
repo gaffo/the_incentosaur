@@ -37,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
   	admin.resources :feed_types, :active_scaffold => true
   	admin.resources :feeds, :active_scaffold => true
+  	admin.resources :users, :active_scaffold => true
   end
   
   map.resources :feed

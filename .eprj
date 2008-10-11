@@ -34,6 +34,10 @@
             <string>app\controllers\admin\feeds_controller.rb</string>
             <key>home_con</key>
             <string>app\controllers\home_controller.rb</string>
+            <key>integration_test</key>
+            <string>vendor\rails\railties\lib\rails_generator\generators\components\integration_test\templates\integration_test.rb</string>
+            <key>integration_test.rb</key>
+            <string>vendor\rails\actionpack\test\controller\integration_test.rb</string>
             <key>macros</key>
             <string>vendor\plugins\shoulda\lib\shoulda\macros.rb</string>
             <key>macros.rb</key>
@@ -46,10 +50,18 @@
             <string>config\routes.rb</string>
             <key>routes.r</key>
             <string>config\routes.rb</string>
+            <key>routes.rb</key>
+            <string>config\routes.rb</string>
             <key>schema</key>
             <string>db\schema.rb</string>
             <key>unit</key>
             <string>vendor\rails\railties\lib\rails_generator\generators\components\plugin\templates\unit_test.rb</string>
+            <key>user.rb</key>
+            <string>app\models\user.rb</string>
+            <key>user_te</key>
+            <string>test\unit\user_test.rb</string>
+            <key>users.y</key>
+            <string>test\fixtures\users.yml</string>
         </dict>
     </dict>
 </plist>
