@@ -39,7 +39,7 @@ ActionController::Routing::Routes.draw do |map|
   	admin.resources :feeds, :active_scaffold => true
   end
   
-  map.resources :feeds
+  map.resources :feed
 
   # See how all your routes lay out with "rake routes"
 

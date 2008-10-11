@@ -26,6 +26,8 @@
             <string>app\models\feed_type.rb</string>
             <key>feed_types</key>
             <string>app\controllers\admin\feed_types_controller.rb</string>
+            <key>feeds.y</key>
+            <string>test\fixtures\feeds.yml</string>
             <key>feeds_</key>
             <string>test\integration\admin\feeds_test.rb</string>
             <key>feeds_con</key>
@@ -44,6 +46,8 @@
             <string>config\routes.rb</string>
             <key>routes.r</key>
             <string>config\routes.rb</string>
+            <key>schema</key>
+            <string>db\schema.rb</string>
             <key>unit</key>
             <string>vendor\rails\railties\lib\rails_generator\generators\components\plugin\templates\unit_test.rb</string>
         </dict>

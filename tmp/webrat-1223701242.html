@@ -1,0 +1,204 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Action Controller: Exception caught</title>
+  <style>
+    body { background-color: #fff; color: #333; }
+
+    body, p, ol, ul, td {
+      font-family: verdana, arial, helvetica, sans-serif;
+      font-size:   13px;
+      line-height: 18px;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      font-size: 11px;
+    }
+
+    a { color: #000; }
+    a:visited { color: #666; }
+    a:hover { color: #fff; background-color:#000; }
+  </style>
+</head>
+<body>
+
+<h1>
+  NameError
+  
+    in FeedController#show
+  
+</h1>
+<pre>uninitialized constant FeedController</pre>
+
+
+
+<p><code>RAILS_ROOT: /cygdrive/c/Documents and Settings/mike.gaffney/workspace/the_incentosaur</code></p>
+
+<div id="traces">
+  
+    
+    <a href="#" onclick="document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';; return false;">Application Trace</a> |
+  
+    
+    <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';; return false;">Framework Trace</a> |
+  
+    
+    <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';; return false;">Full Trace</a> 
+  
+
+  
+    <div id="Application-Trace" style="display: block;">
+      <pre><code>vendor/rails/activesupport/lib/active_support/dependencies.rb:279:in `load_missing_constant'
+vendor/rails/activesupport/lib/active_support/dependencies.rb:468:in `const_missing'
+vendor/rails/activesupport/lib/active_support/dependencies.rb:480:in `const_missing'
+vendor/rails/activesupport/lib/active_support/inflector.rb:285:in `constantize'
+vendor/rails/activesupport/lib/active_support/inflector.rb:284:in `each'
+vendor/rails/activesupport/lib/active_support/inflector.rb:284:in `constantize'
+vendor/rails/activesupport/lib/active_support/core_ext/string/inflections.rb:143:in `constantize'
+vendor/rails/actionpack/lib/action_controller/routing/route_set.rb:387:in `recognize'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:148:in `handle_request'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+vendor/rails/actionpack/lib/action_controller/integration.rb:285:in `process'
+vendor/rails/actionpack/lib/action_controller/integration.rb:176:in `get'
+vendor/rails/actionpack/lib/action_controller/integration.rb:133:in `send'
+vendor/rails/actionpack/lib/action_controller/integration.rb:133:in `request_via_redirect'
+vendor/rails/actionpack/lib/action_controller/integration.rb:141:in `get_via_redirect'
+vendor/plugins/webrat/lib/webrat/rails/rails_session.rb:19:in `get'
+vendor/plugins/webrat/lib/webrat/core/session.rb:58:in `send'
+vendor/plugins/webrat/lib/webrat/core/session.rb:58:in `request_page'
+vendor/plugins/webrat/lib/webrat/core/link.rb:16:in `click'
+vendor/plugins/webrat/lib/webrat/core/scope.rb:107:in `clicks_link'
+(__FORWARDABLE__):3:in `__send__'
+(__FORWARDABLE__):3:in `clicks_link'
+test/integration/feeds_integration_test.rb:8:in `test_can_get_to_basic_index'
+test/integration/feeds_integration_test.rb:5</code></pre>
+    </div>
+  
+    <div id="Framework-Trace" style="display: none;">
+      <pre><code>vendor/rails/activesupport/lib/active_support/dependencies.rb:279:in `load_missing_constant'
+vendor/rails/activesupport/lib/active_support/dependencies.rb:468:in `const_missing'
+vendor/rails/activesupport/lib/active_support/dependencies.rb:480:in `const_missing'
+vendor/rails/activesupport/lib/active_support/inflector.rb:285:in `constantize'
+vendor/rails/activesupport/lib/active_support/inflector.rb:284:in `each'
+vendor/rails/activesupport/lib/active_support/inflector.rb:284:in `constantize'
+vendor/rails/activesupport/lib/active_support/core_ext/string/inflections.rb:143:in `constantize'
+vendor/rails/actionpack/lib/action_controller/routing/route_set.rb:387:in `recognize'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:148:in `handle_request'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+vendor/rails/actionpack/lib/action_controller/integration.rb:285:in `process'
+vendor/rails/actionpack/lib/action_controller/integration.rb:176:in `get'
+vendor/rails/actionpack/lib/action_controller/integration.rb:133:in `send'
+vendor/rails/actionpack/lib/action_controller/integration.rb:133:in `request_via_redirect'
+vendor/rails/actionpack/lib/action_controller/integration.rb:141:in `get_via_redirect'
+vendor/plugins/webrat/lib/webrat/rails/rails_session.rb:19:in `get'
+vendor/plugins/webrat/lib/webrat/core/session.rb:58:in `send'
+vendor/plugins/webrat/lib/webrat/core/session.rb:58:in `request_page'
+vendor/plugins/webrat/lib/webrat/core/link.rb:16:in `click'
+vendor/plugins/webrat/lib/webrat/core/scope.rb:107:in `clicks_link'
+vendor/plugins/webrat/lib/webrat/rails/session.rb:24:in `send'
+vendor/plugins/webrat/lib/webrat/rails/session.rb:24:in `method_missing'
+vendor/rails/actionpack/lib/action_controller/integration.rb:501:in `send!'
+vendor/rails/actionpack/lib/action_controller/integration.rb:501:in `method_missing'
+vendor/rails/activesupport/lib/active_support/testing/setup_and_teardown.rb:33:in `__send__'
+vendor/rails/activesupport/lib/active_support/testing/setup_and_teardown.rb:33:in `run'
+vendor/rails/actionpack/lib/action_controller/integration.rb:600:in `run'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+/usr/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+/usr/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+/usr/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+/usr/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+/usr/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+/usr/lib/ruby/1.8/test/unit.rb:278</code></pre>
+    </div>
+  
+    <div id="Full-Trace" style="display: none;">
+      <pre><code>vendor/rails/activesupport/lib/active_support/dependencies.rb:279:in `load_missing_constant'
+vendor/rails/activesupport/lib/active_support/dependencies.rb:468:in `const_missing'
+vendor/rails/activesupport/lib/active_support/dependencies.rb:480:in `const_missing'
+vendor/rails/activesupport/lib/active_support/inflector.rb:285:in `constantize'
+vendor/rails/activesupport/lib/active_support/inflector.rb:284:in `each'
+vendor/rails/activesupport/lib/active_support/inflector.rb:284:in `constantize'
+vendor/rails/activesupport/lib/active_support/core_ext/string/inflections.rb:143:in `constantize'
+vendor/rails/actionpack/lib/action_controller/routing/route_set.rb:387:in `recognize'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:148:in `handle_request'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+vendor/rails/actionpack/lib/action_controller/integration.rb:285:in `process'
+vendor/rails/actionpack/lib/action_controller/integration.rb:176:in `get'
+vendor/rails/actionpack/lib/action_controller/integration.rb:133:in `send'
+vendor/rails/actionpack/lib/action_controller/integration.rb:133:in `request_via_redirect'
+vendor/rails/actionpack/lib/action_controller/integration.rb:141:in `get_via_redirect'
+vendor/plugins/webrat/lib/webrat/rails/rails_session.rb:19:in `get'
+vendor/plugins/webrat/lib/webrat/core/session.rb:58:in `send'
+vendor/plugins/webrat/lib/webrat/core/session.rb:58:in `request_page'
+vendor/plugins/webrat/lib/webrat/core/link.rb:16:in `click'
+vendor/plugins/webrat/lib/webrat/core/scope.rb:107:in `clicks_link'
+(__FORWARDABLE__):3:in `__send__'
+(__FORWARDABLE__):3:in `clicks_link'
+vendor/plugins/webrat/lib/webrat/rails/session.rb:24:in `send'
+vendor/plugins/webrat/lib/webrat/rails/session.rb:24:in `method_missing'
+vendor/rails/actionpack/lib/action_controller/integration.rb:501:in `send!'
+vendor/rails/actionpack/lib/action_controller/integration.rb:501:in `method_missing'
+test/integration/feeds_integration_test.rb:8:in `test_can_get_to_basic_index'
+vendor/rails/activesupport/lib/active_support/testing/setup_and_teardown.rb:33:in `__send__'
+vendor/rails/activesupport/lib/active_support/testing/setup_and_teardown.rb:33:in `run'
+vendor/rails/actionpack/lib/action_controller/integration.rb:600:in `run'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+/usr/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+/usr/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+/usr/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+/usr/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+/usr/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+/usr/lib/ruby/1.8/test/unit.rb:278
+test/integration/feeds_integration_test.rb:5</code></pre>
+    </div>
+  
+</div>
+
+
+
+
+
+
+<h2 style="margin-top: 30px">Request</h2>
+<p><b>Parameters</b>: <pre>{&quot;id&quot;=&gt;&quot;1&quot;}</pre></p>
+
+<p><a href="#" onclick="document.getElementById('session_dump').style.display='block'; return false;">Show session dump</a></p>
+<div id="session_dump" style="display:none"><pre class='debug_dump'>--- 
+flash: !map:ActionController::Flash::FlashHash {}
+
+</pre></div>
+
+
+<h2 style="margin-top: 30px">Response</h2>
+<p><b>Headers</b>: <pre>{&quot;cookie&quot;=&gt;[],
+ &quot;Cache-Control&quot;=&gt;&quot;no-cache&quot;}</pre></p>
+
+
+
+</body>
+</html>
