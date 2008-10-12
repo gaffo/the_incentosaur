@@ -62,6 +62,8 @@
             <string>test\unit\user_test.rb</string>
             <key>users.y</key>
             <string>test\fixtures\users.yml</string>
+            <key>users_con</key>
+            <string>app\controllers\admin\users_controller.rb</string>
         </dict>
     </dict>
 </plist>
