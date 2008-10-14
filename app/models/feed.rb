@@ -1,6 +1,6 @@
 class Feed < ActiveRecord::Base
 	has_many :posts
-	validates_presence_of :name, :url, :id_xpath, :author_xpath, :entry_xpath
+	validates_presence_of :name, :url, :id_xpath, :author_xpath, :entry_xpath, :points
 	
 	def self.load_all_feeds
 		Feed.find(:all).each do |f|

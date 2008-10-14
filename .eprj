@@ -33,7 +33,9 @@
             <key>feeds_</key>
             <string>test\integration\admin\feeds_test.rb</string>
             <key>feeds_con</key>
-            <string>app\controllers\admin\feeds_controller.rb</string>
+            <string>test\functional\admin\feeds_controller_test.rb</string>
+            <key>feeds_tes</key>
+            <string>test\integration\admin\feeds_test.rb</string>
             <key>home_con</key>
             <string>app\controllers\home_controller.rb</string>
             <key>integration_test</key>
