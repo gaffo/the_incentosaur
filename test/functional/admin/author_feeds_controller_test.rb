@@ -1,8 +1,7 @@
 require 'test_helper'
 
-class Admin::UsersControllerTest < ActionController::TestCase
+class Admin::AuthorFeedsControllerTest < ActionController::TestCase
   # Replace this with your real tests.
-  tests Admin::UsersController
   def test_truth
     assert true
   end

@@ -5,6 +5,8 @@
         <key>fileTriggers</key>
         <dict>
             <key>author_fee</key>
+            <string>app\controllers\admin\author_feeds_controller.rb</string>
+            <key>author_feed</key>
             <string>app\models\author_feed.rb</string>
             <key>database.</key>
             <string>config\database.yml</string>
@@ -58,6 +60,8 @@
             <string>vendor\rails\railties\lib\rails_generator\generators\components\plugin\templates\unit_test.rb</string>
             <key>user.rb</key>
             <string>app\models\user.rb</string>
+            <key>user_t</key>
+            <string>test\unit\user_test.rb</string>
             <key>user_te</key>
             <string>test\unit\user_test.rb</string>
             <key>users.y</key>
