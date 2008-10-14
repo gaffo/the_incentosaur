@@ -10,9 +10,3 @@ test:
   username: root
   password: root
   host: 127.0.0.1
-production:
-  adapter: mysql
-  database: incentosaur_prod
-  username: incento
-  password: 1nc3nt0
-  host: mysql.confabulus.com
