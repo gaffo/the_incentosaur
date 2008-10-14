@@ -8,6 +8,8 @@
             <string>app\controllers\admin\author_feeds_controller.rb</string>
             <key>author_feed</key>
             <string>app\models\author_feed.rb</string>
+            <key>datab</key>
+            <string>config\database.yml</string>
             <key>database.</key>
             <string>config\database.yml</string>
             <key>defalt.</key>

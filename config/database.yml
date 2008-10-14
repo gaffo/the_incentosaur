@@ -1,0 +1,18 @@
+development:
+  adapter: mysql
+  database: the_incentosaur_development
+  username: root
+  password: root
+  host: 127.0.0.1
+test:
+  adapter: mysql
+  database: the_incentosaur_test
+  username: root
+  password: root
+  host: 127.0.0.1
+production:
+  adapter: mysql
+  database: incentosaur_prod
+  username: incento
+  password: 1nc3nt0
+  host: mysql.confabulus.com
