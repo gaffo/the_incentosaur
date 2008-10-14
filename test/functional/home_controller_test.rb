@@ -8,5 +8,6 @@ class HomeControllerTest < ActionController::TestCase
 		end
 		should_respond_with :success
 		should_assign_to :feeds
+		should_assign_to :top_authors
 	end
 end

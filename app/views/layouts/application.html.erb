@@ -38,13 +38,14 @@ Description: A multi-column, fixed-width design for 800x600 resolutions.
 			<%= yield %>
 		</div>
 		<!-- end content -->
-		<br style="clear: both;" />
-		
 		<!-- start sidebar -->
 		<div id="sidebar">
+			<ul>
 			<%= yield :sidebar %>
+			</ul>
 		</div>
 		<!-- end sidebar -->
+		<br style="clear: both;" />
 	</div>
 </div>
 <!-- end page -->

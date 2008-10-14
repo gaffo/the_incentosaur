@@ -1,3 +1,13 @@
+<% content_for :sidebar do %>
+<li>
+	<h2>Top Authors</h2>
+	<ul>
+		<% @top_authors.each do |author| %>
+		<li><a href="#"><%= author.name %>: <%= author.points %></a></li>
+		<% end %>
+	</ul>
+</li>
+<% end %>
 <% @feeds.each do |feed| %>
 <div class="post">
 	<p class="date" title="<%= h feed.name %>"><%= truncate(feed.name, 15) %><b><%= feed.posts.recent.count %></b></p>
