@@ -50,6 +50,8 @@
             <string>vendor\plugins\shoulda\lib\shoulda\active_record\macros.rb</string>
             <key>post.rb</key>
             <string>app\models\post.rb</string>
+            <key>rake</key>
+            <string>Rakefile</string>
             <key>routes</key>
             <string>vendor\rails\railties\lib\tasks\routes.rake</string>
             <key>routes.</key>
