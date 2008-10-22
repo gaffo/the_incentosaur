@@ -2,5 +2,6 @@ attributes:
   name: Amos
   created_at: 2008-10-06 05:04:26
   updated_at: 2008-10-06 05:04:26
-  id: "19"
-  feed_id: "2"
+  id: 19
+  feed_id: 2
+  user_id: 1
