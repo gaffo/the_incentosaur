@@ -1,7 +1,7 @@
 <h1><%= @record.name %></h1>
 <% @record.posts.recent.each do |post| %>
 <div class="post">
-	<p class="date"><%= post.created_at %><b></b></p>
+	<p class="date"><%= post.created_at %><b><%= post.author_feed.name%></b></p>
 	<h2 class="title"><%= post.author_feed.feed.name %></h2>
 	<div class="entry">
 	</div>
