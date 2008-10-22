@@ -26,7 +26,7 @@ class PostTest < ActiveSupport::TestCase
 	    end
 	
 	    should "have condition recent" do
-	      expected_conditions  = {:conditions => ["created_at > ?", Date.today - 7.days], :order => "created_at desc"}
+	      expected_conditions  = {:conditions => ["posts.created_at > ?", Date.today - 7.days], :order => "posts.created_at desc"}
 	      assert_equal expected_conditions, @scoped_find.proxy_options
 	    end
   	end

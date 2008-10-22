@@ -1,0 +1,10 @@
+<h1><%= @record.name %></h1>
+<% @record.posts.recent.each do |post| %>
+<div class="post">
+	<p class="date"><b><%= post.author_feed.name %></b></p>
+	<h2 class="title"></h2>
+	<div class="entry">
+		<%= post.full_post %>
+	</div>
+</div>
+<% end %>

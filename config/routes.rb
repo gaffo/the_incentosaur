@@ -41,6 +41,7 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   map.resources :feed
+  map.resources :user, :id => /.+/
 
   # See how all your routes lay out with "rake routes"
 
