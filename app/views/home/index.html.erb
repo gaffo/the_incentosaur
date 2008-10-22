@@ -3,7 +3,7 @@
 	<h2>Top Authors</h2>
 	<ul>
 		<% @top_authors.each do |author| %>
-		<li><a href="#"><%= author.name %>: <%= author.points %></a></li>
+		<li><a href="<%= user_url(author.name) %>"><%= author.name %>: <%= author.points %></a></li>
 		<% end %>
 	</ul>
 </li>
