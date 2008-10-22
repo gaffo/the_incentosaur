@@ -6,3 +6,7 @@ bug reports, comments, and commits. The Incentosaur watches the feeds you tell i
 and keeps your score up to date.
 
 Think of it as Ruby Community: The Game.
+
+== Development ==
+Run the following right after cloning the repository.
+>  git submodule update --init

@@ -15,13 +15,13 @@ class Feed < ActiveRecord::Base
 	def load_current_from_feed
 		pull_current_from_feed.each do |p|
 			next if p[:author].empty?
-			author = AuthorFeed.find_or_create_by_feed_id_and_name(self.id, p[:author])
-			author.save!
-			post = Post.find_or_create_by_author_feed_idkey(
-							author,
-							self,
-							p[:idkey],
-							p[:full_post])
+			author_feed = AuthorFeed.find_or_create_by_feed_id_and_name(self.id, p[:author])
+			author_feed.save!
+			hash = {:idkey => p[:idkey], 
+			        :full_post => p[:full_post], 
+			        :author_feed_id => author_feed.id,
+			        :feed_id => self.id}
+			Post.find_or_create_by_author_feed_idkey(hash)
 		end
 	end
 	
@@ -42,7 +42,11 @@ class Feed < ActiveRecord::Base
 	
 	protected
 	def pull_feed
-		REXML::Document.new(Net::HTTP.get_response(URI.parse(self.url)).body)
+		REXML::Document.new(load_feed_from_html)
+	end
+	
+	def load_feed_from_html
+	  Net::HTTP.get_response(URI.parse(self.url)).body
 	end
 	
 	def text_or_empty(element)

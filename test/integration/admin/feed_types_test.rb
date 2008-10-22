@@ -3,7 +3,6 @@ require File.dirname(__FILE__) + "/../../test_helper"
 class Admin::FeedTypesTest < ActionController::IntegrationTest
 	
 	def test_index
-	  puts admin_feed_types_url
       visits admin_feed_types_url
       assert_response :success
 	end
