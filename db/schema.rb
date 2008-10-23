@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081014031051) do
+ActiveRecord::Schema.define(:version => 20081023161016) do
 
   create_table "author_feeds", :force => true do |t|
     t.string   "name",       :null => false
@@ -50,9 +50,11 @@ ActiveRecord::Schema.define(:version => 20081014031051) do
   add_index "posts", ["feed_id", "idkey"], :name => "unique_post_feed_and_idkey", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "name",       :null => false
+    t.string   "name",                          :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password",   :default => "",    :null => false
+    t.boolean  "is_admin",   :default => false, :null => false
   end
 
 end
