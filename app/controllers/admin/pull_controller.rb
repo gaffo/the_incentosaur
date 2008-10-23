@@ -1,4 +1,4 @@
-class Admin::PullController < ApplicationController
+class Admin::PullController < Admin::AdminBaseController
   def index
     Feed.load_all_feeds
     render :text => "done"
