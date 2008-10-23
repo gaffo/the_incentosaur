@@ -10,3 +10,6 @@
 [submodule "vendor/plugins/active_scaffold"]
 	path = vendor/plugins/active_scaffold
 	url = git://github.com/activescaffold/active_scaffold.git
+[submodule "vendor/plugins/auths_as_http_basic"]
+	path = vendor/plugins/auths_as_http_basic
+	url = git://github.com/gaffo/auths_as_http_basic.git
