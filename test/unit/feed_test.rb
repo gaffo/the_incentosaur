@@ -11,6 +11,14 @@ class FeedTest < ActiveSupport::TestCase
                      :idkey_xpath => 'id', 
                      :authorxpath => 'author/name', 
                      :points => 3}
+                     
+  def test_auto_xpaths
+    feed = Feed.create(COMPLETE_PARAMS)
+    xpaths = feed.automatic_xpaths
+    assert_not_nil(xpaths)
+    assert_equal(1, xpaths.size)
+    assert_same_elements([:idkey_xpath], xpaths)
+  end
 
   context "pull feed" do
     setup do

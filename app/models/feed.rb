@@ -2,6 +2,10 @@ class Feed < ActiveRecord::Base
 	has_many :posts
 	validates_presence_of :name, :url, :idkey_xpath, :authorxpath, :full_postxpath, :points
 	
+  def automatic_xpaths
+    attributes.keys.select{|k| k =~ /_xpath$/}.collect(&:to_sym)
+  end
+  
 	def self.load_all_feeds
 		Feed.find(:all).each do |f|
 			begin
