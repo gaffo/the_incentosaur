@@ -15,7 +15,7 @@ class Admin::FeedsTest < ActionController::IntegrationTest
 	  fills_in "record[url]", :with => "new_url"
 	  fills_in "record[idkey_xpath]", :with => "//id"
 	  fills_in "record[authorxpath]", :with => "//author"
-	  fills_in "record[full_post_xpath]", :with => "//entry"
+	  fills_in "record[full_postxpath]", :with => "//entry"
 	  before = Feed.count
 	  clicks_button "Create"
 	  assert_response(:success)
