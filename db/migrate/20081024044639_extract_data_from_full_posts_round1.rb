@@ -1,6 +1,6 @@
 class ExtractDataFromFullPostsRound1 < ActiveRecord::Migration
   def self.up
-    Feed.find(:all, :conditions => {:authorxpath => 'dc:creator'}).each{|f| f.posts.each{|p| p.delete}}
+    Feed.find(:all, :conditions => {:authorxpath => 'dc:creator'}).each{|f| f.posts.each{|p| p.destroy}}
     Post.find(:all).each do |post|
       doc = REXML::Document.new(post.full_post).root
       post.feed.automatic_xpaths.each do |path_name|
