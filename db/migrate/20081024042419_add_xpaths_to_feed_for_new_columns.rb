@@ -1,6 +1,6 @@
 class AddXpathsToFeedForNewColumns < ActiveRecord::Migration
   def self.up
-    add_column :feeds, :posted_date_xpath, :datetime
+    add_column :feeds, :posted_date_xpath, :string
     add_column :feeds, :title_xpath, :string
     add_column :feeds, :link_xpath, :string
     add_column :feeds, :data_xpath, :string

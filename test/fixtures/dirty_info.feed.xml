@@ -15,32 +15,7 @@
     <updated>2008-09-10T21:13:40Z</updated>
     <link href="http://dirtyinformation.com/2008/9/7/inject-me-bffs" rel="alternate" type="text/html"/>
     <title>Inject &amp; Me - BFFs</title>
-<content type="html">
-            &lt;p&gt;
-I find myself turning to &lt;a href='http://apidock.com/ruby/Enumerable/inject'&gt;Enumberable#inject&lt;/a&gt; more and more.  It is such a powerful method, yet I rarely see it used in others' code.  Here are a couple of examples of the power of inject.
-&lt;/p&gt;
-&lt;h3&gt;Adding Facorial to All Integers&lt;/a&gt;
-&lt;pre&gt;
-class Integer
-  def factorial
-    raise 'Cannot take a factorial of a negative number' if self &amp;lt; 0
-    return 1 if self == 0
-    (1..self).inject { |total, element| total * element }
-  end
-end
-&lt;/pre&gt;
-&lt;h3&gt;Removing Touching Matching Elements in an Array Until No Touching Elements Match( thanks Eric )&lt;/h3&gt;
-&lt;pre&gt;
-class Array
-  def remove_touchers
-    self.inject([]) { |final, element| final[-1] == element ? final[0..-2] : final &amp;lt;&amp;lt; element }
-  end
-end
-&lt;/pre&gt;
-&lt;p&gt;
-So, why aren't there more people using this method?  Is it just forgotten?  Are you using &lt;a href='http://apidock.com/ruby/Enumerable/inject'&gt;Enumberable#inject&lt;/a&gt;?  How are you using it?
-&lt;/p&gt;
-          </content>  </entry>
+<content type="html"> lll </content>  </entry>
   <entry xml:base="http://dirtyinformation.com/">
     <author>
       <name>Amos</name>
@@ -50,20 +25,7 @@ So, why aren't there more people using this method?  Is it just forgotten?  Are 
     <updated>2008-08-26T01:39:25Z</updated>
     <link href="http://dirtyinformation.com/2008/8/25/blueprint-to-the-rescue" rel="alternate" type="text/html"/>
     <title>Blueprint to the Rescue</title>
-<content type="html">
-            &lt;p&gt;
-My biggest issue in web development has always been design, and keeping my css files in a state that is understandable.  I always end up with a million classes and ids that are hard to keep up.  Dealing with Internet Explorer and its &quot;unique&quot; way to do certain things can make everyone wish for standards.
-&lt;/p&gt;
-&lt;p&gt;
-With all this headache I've found my &lt;a href='http://www.miralus.com/'&gt;HeadOn&lt;/a&gt; with &lt;a href='http://github.com/joshuaclayton/blueprint-css/tree/master'&gt;BlueprintCSS&lt;/a&gt;.  With one set of classes and some forethought I can get a nice looking page that looks the same in all my browsers.  I'd go into detail, but the &lt;a href='http://github.com/joshuaclayton/blueprint-css/tree/master/TUTORIAL.textile'&gt;tutorial&lt;/a&gt; is really all the jump start you need.
-&lt;/p&gt;
-&lt;p&gt;
-&lt;a href='http://github.com/joshuaclayton/blueprint-css/tree/master'&gt;BlueprintCSS&lt;/a&gt; does keep me in a grid layout, but this constraint is easy to live with when I know that every browser is going to look like I expect.
-&lt;/p&gt;
-&lt;p&gt;
-If you're wishing all your browsers looked the same after a hard days work, &lt;a href='http://github.com/joshuaclayton/blueprint-css/tree/master'&gt;BlueprintCSS&lt;/a&gt; might be the solution for you.
-&lt;/p&gt;
-          </content>  </entry>
+<content type="html">content</content>  </entry>
   <entry xml:base="http://dirtyinformation.com/">
     <author>
       <name>Amos</name>
@@ -73,17 +35,7 @@ If you're wishing all your browsers looked the same after a hard days work, &lt;
     <updated>2008-08-14T04:46:50Z</updated>
     <link href="http://dirtyinformation.com/2008/8/13/restful-wizards" rel="alternate" type="text/html"/>
     <title>RESTful Wizard</title>
-<content type="html">
-            &lt;p&gt;
-Just before RailsConf 2008 I published &lt;a href='http://github.com/Adkron/actsaswizard'&gt;ActsAsWizard&lt;/a&gt;.  A rails plugin for creating RESTful multi-step wizards.  I've been really happy with it, but hadn't pushed it much because of a dependency on acts_as_state_machine that I wanted to remove.
-&lt;/p&gt;
-&lt;p&gt;
-Well, I've done it.  Just yesterday I removed all dependencies on acts_as_state_machine, and &lt;a href='http://github.com/Adkron/actsaswizard'&gt;ActsAsWizard&lt;/a&gt; is finally a standalone plugin for rails.  In removing acts_as_state_machine I have also removed a lot of dependencies on active record.  The plugin modules are still automatically added to ActiveRecord::Base, but the functionality can be now be used with models that are not ActiveRecord.  In fact I was contacted by one user that is using the wizard to populate session information.
-&lt;/p&gt;
-&lt;p&gt;
-If anyone tries out &lt;a href='http://github.com/Adkron/actsaswizard'&gt;ActsAsWizard&lt;/a&gt;, please send me any comments or suggestions.  Your help would be greatly appreciated.  Oh, and patches are always welcome.
-&lt;/p&gt;
-          </content>  </entry>
+<content type="html">content</content>  </entry>
   <entry xml:base="http://dirtyinformation.com/">
     <author>
       <name>Amos</name>
@@ -93,25 +45,7 @@ If anyone tries out &lt;a href='http://github.com/Adkron/actsaswizard'&gt;ActsAs
     <updated>2007-09-02T21:12:07Z</updated>
     <link href="http://dirtyinformation.com/2007/9/2/in-place-editor-and-collection-partials" rel="alternate" type="text/html"/>
     <title>In Place Editor and Collection Partials</title>
-<content type="html">
-            &lt;p&gt;I've noticed a lot of individuals have been having problems with the in_place_editor function and using a collection partial.  The problem comes down to an in_place_editor looking for an variable beginning with an @.  So here is the quick fix.&lt;/p&gt;
-&lt;br /&gt;
-The partial function:
-&lt;br /&gt;
-&lt;p&gt;&lt;pre&gt;
-&amp;lt%= render :partial =&gt; &quot;item&quot;, :collection =&gt; @items %&amp;gt
-&lt;/pre&gt;&lt;/p&gt;
-&lt;br /&gt;
-Inside the Partial:
-&lt;br /&gt;
-&lt;p&gt;&lt;pre&gt;
-&amp;lt%@item = item%&amp;gt
-&amp;lt%= in_place_editor_field :item, 'on_hand' %&amp;gt
-&lt;/p&gt;&lt;/pre&gt;
-&lt;p&gt;
-I know it is a bit of a hack, but it is a very quick fix.  Happy Coding!
-&lt;/p&gt;
-          </content>  </entry>
+<content type="html">content</content>  </entry>
   <entry xml:base="http://dirtyinformation.com/">
     <author>
       <name>Amos</name>
@@ -121,76 +55,8 @@ I know it is a bit of a hack, but it is a very quick fix.  Happy Coding!
     <updated>2008-08-12T20:03:52Z</updated>
     <link href="http://dirtyinformation.com/2007/3/21/why-should-i-test-rails-itself" rel="alternate" type="text/html"/>
     <title>Why Should I 'Test Rails Itself?'</title>
-<content type="html">
-            &lt;p&gt;
-I was reading Google Groups' Rails Group the other day when I ran into someone talking about why should I test the validates functions.  Here is a quote from his email:
-&lt;/p&gt;
-
-&lt;blockquote&gt;
-For example, what is the point of writing a unit test that simply
-tests a validate statement in the model? Yes, it's interesting (the
-first time, at least) that the test works and that, golly-gee, Rails
-works as advertised, as well, but is there any real use in doing this?
-&lt;br /&gt;
-I can imagine a scenario where a I update Rails and suddenly a unit
-test that tests a Rails validator fails, but I expect the Rails
-development team would find this before me. Or is that too naive? 
-&lt;/blockquote&gt;
-
-&lt;p&gt;
-I just thought I would post my response for anyone who has the same question.  Also, sorry if the format is bad or to quick, but I was trying to hurry when I wrote him the response.
-&lt;/p&gt;
-
-
-&lt;blockquote&gt;
-&lt;p&gt;
-Don't look it as testing Rails.  You are testing your model on testing validates.  Let's say you write this class:
-&lt;/p&gt;
-
-&lt;pre&gt;
-class Person &amp;lt; ActiveRecord::Base
-  validates_length_of :phone_number, :within =&gt; 7..10
-  ...
-end
-&lt;/pre&gt;
-
-&lt;p&gt;
-So you write a test:
-&lt;/p&gt;
-
-&lt;pre&gt;
-def test_phone_number_length_incorrect
-  person = Person.new(:phone_number =&gt; '123456')
-  person.valid?
-  assert person.errors.invalid?(:phone_number), 'Invalid Phone Number Coming Back as Valid'
-end
-&lt;/pre&gt;
-
-&lt;p&gt;
-I think we would all agree that this test makes sure that a valid phone number passes.
-&lt;/p&gt;
-
-&lt;p&gt;
-Now not thinking you do a find and replace and replace all 7s with 8s or maybe number with numbers is more likely.  So you have:
-&lt;/p&gt;
-
-&lt;pre&gt;
-class Person &amp;lt; ActiveRecord::Base
-  validates_length_of :phone_numbers, :within =&gt; 7..10
-  ...
-end
-&lt;/pre&gt;
-
-&lt;p&gt;
-Now you can place :phone_number =&gt; '12' into your database because you are now validating :phone_numbers.
-&lt;/p&gt;
-
-&lt;p&gt;
-If you have a test you run tests after you completed the find and replace, and this error would be caught right away.  That is why you 'test Rails.'
-&lt;/p&gt;
-
-&lt;/blockquote&gt;
-          </content>  </entry>
+<content type="html">content</content>  
+  </entry>
   <entry xml:base="http://dirtyinformation.com/">
     <author>
       <name>Amos</name>
@@ -200,17 +66,7 @@ If you have a test you run tests after you completed the find and replace, and t
     <updated>2007-04-20T19:24:22Z</updated>
     <link href="http://dirtyinformation.com/2007/1/17/great-way-to-learn-ruby-for-programmers-pt-2" rel="alternate" type="text/html"/>
     <title>Great Way to Learn Ruby (for Programmers) pt. 2</title>
-<content type="html">
-            &lt;p&gt;
-Bob, one commenter, suggested &lt;a href='http://rubyquiz.com'&gt;Ruby Quiz&lt;/a&gt; as another great source to help learn Ruby.
-&lt;/p&gt;
-&lt;p&gt;
-Ruby Quiz posts different problems, which I believe are a little harder than &lt;a href='http://codegolf.com'&gt;Code Golf&lt;/a&gt;, but it has one great advantage.  After trying the problem yourself you can look at other&#8217;s solutions to the problem.  this may help you notice different methods that you have not yet thought of, and may help you learn more about syntax, and functions that are not as readily documented.  This can also be a great source for code snippets, but remember to give credit where credit is due.
-&lt;/p&gt;
-&lt;p&gt;
-I have used Ruby Quiz in my pursuit of knowledge, but forgot to place it in my first article.  Thanks, Bob, for your suggestion. 
-&lt;/p&gt;
-          </content>  </entry>
+<content type="html">content</content>  </entry>
   <entry xml:base="http://dirtyinformation.com/">
     <author>
       <name>Amos</name>
@@ -220,23 +76,7 @@ I have used Ruby Quiz in my pursuit of knowledge, but forgot to place it in my f
     <updated>2007-04-20T19:24:16Z</updated>
     <link href="http://dirtyinformation.com/2007/1/14/great-way-to-learn-ruby-for-programmers" rel="alternate" type="text/html"/>
     <title>Great Way to Learn Ruby (for Programmers)</title>
-<content type="html">
-            &lt;p&gt;
-I have found the perfect way to learn ruby.  &lt;a href='http://codegolf.com'&gt;Code Golf&lt;/a&gt;!  Now I know those of you out there who know about Code Golf, and about programming are thinking, &lt;span class='caps'&gt;OMG&lt;/span&gt; what is this guy thinking, but bear with me.
-&lt;/p&gt;
-&lt;p&gt;
-I&#8217;m not suggesting try to learn to program by sitting down and actually trying to write your code in the smallest number of bytes possible.  That just creates unreadable code that is a nightmare to trouble shoot.  Just use the functionality of Code Golf to help you.
-&lt;/p&gt;
-&lt;p&gt;
-I have a terrible time just reading a programming book and getting anything out of it.  I have to have a project to code.  Something small that can be done quickly, and I can learn a little at a time.  Code Golf does exactly that for me.  Each of their problems gives me something to work on.
-&lt;/p&gt;
-&lt;p&gt;
-The best part is, Code Golf checks my answer.  It reminds me a lot of a TA in college, but you don&#8217;t have to pay to have them look at your code output.  You code, and submit, and there is imediate feedback if your answer doesn&#8217;t match the expected output.  Granted it doesn&#8217;t grade your code, and tell you about coding conventions, but every output must be precise.
-&lt;/p&gt;
-&lt;p&gt;
-May I remind you that you can just output the entire answer, but it won&#8217;t do you much good, and if you have no experience with programming this may be a tough way to start.
-&lt;/p&gt;
-          </content>  </entry>
+<content type="html">content</content>  </entry>
   <entry xml:base="http://dirtyinformation.com/">
     <author>
       <name>Amos</name>
@@ -246,56 +86,7 @@ May I remind you that you can just output the entire answer, but it won&#8217;t 
     <updated>2007-04-20T19:24:06Z</updated>
     <link href="http://dirtyinformation.com/2006/12/6/progress-bars-using-css" rel="alternate" type="text/html"/>
     <title>Progress Bars using css</title>
-<content type="html">
-            &lt;p&gt;
-I spend a little time trying to get css to make a progress bar for me.  It took some thought and time, but everything worked out well.  I thought I would put it here for everyone to see.
-&lt;/p&gt;
-&lt;p&gt;
-The CSS
-&lt;pre&gt;
-
-.prog-empty {
-  width: 400px;
-  height: 15px;
-  background: #247;
-  padding: 0;
-  margin: 20px;
-  border: 5px;
-}
-
-.prog-bar {
-  height: 15px;
-  background: #f70;
-  padding: 0;
-  margin: 0;
-}
-
-&lt;/pre&gt;
-&lt;/p&gt;
-&lt;p&gt;
-The html
-&lt;pre&gt;
-
-&amp;lt div class=&quot;prog-empty&quot;&amp;gt
-  &amp;lt div class=&quot;prog-bar&quot; style=&quot;width: 63%&quot;&amp;gt
-  &amp;lt/div&amp;gt
-&amp;lt/div&amp;gt
-
-&lt;/pre&gt;
-&lt;/p&gt;
-&lt;p&gt;
-Now the width percentage needs to be replaced with a function.  With the exact code from above I get something like:
-&lt;/p&gt;
-
-&lt;div&gt;
-  &lt;div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;p&gt;
-I hope everyone can find this useful.  Remember that you can use url(&quot;image.file&quot;) in place of the colors.
-&lt;/p&gt;
-          </content>  </entry>
+<content type="html">content</content>  </entry>
   <entry xml:base="http://dirtyinformation.com/">
     <author>
       <name>Amos</name>
@@ -320,16 +111,5 @@ I hope everyone can find this useful.  Remember that you can use url(&quot;image
     <updated>2007-04-20T19:23:34Z</updated>
     <link href="http://dirtyinformation.com/2006/11/26/imthere-com-mobile-social-networking-in-ror" rel="alternate" type="text/html"/>
     <title>ImThere.com Mobile/Social Networking in RoR</title>
-<content type="html">
-            &lt;p&gt;&lt;img src='http://imthere.com/images/imthere_logo.png' alt='ImThere.com'&gt;
-&lt;p&gt;
-I may be a little biased since I&#8217;m on board with &lt;a href='http://ramped.com'&gt;Ramped Media&lt;/a&gt;, but if your looking for something to do, and love going out you should check out this mobile integrated site.
-&lt;/p&gt;
-&lt;p&gt;
-There are many features that include sending media to and from the site with your mobile phone.  
-&lt;/p&gt;
-&lt;p&gt;
-Take a look because in the future you and everyone you know will be saying, &#8220;&lt;a href='http://ImThere.com'&gt; ImThere!&lt;/a&gt;&#8221; 
-&lt;/p&gt;&lt;/p&gt;
-          </content>  </entry>
+<content type="html">content</content>  </entry>
 </feed>

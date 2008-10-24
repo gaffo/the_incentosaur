@@ -10,6 +10,10 @@ class FeedTest < ActiveSupport::TestCase
                      :full_postxpath => "//entry",
                      :idkey_xpath => 'id', 
                      :authorxpath => 'author/name', 
+                     :posted_date_xpath => 'published',
+                     :title_xpath => 'title',
+                     :link_xpath => 'link@href',
+                     :data_xpath => 'content',
                      :points => 3}
                      
   def test_auto_xpaths
@@ -47,12 +51,21 @@ class FeedTest < ActiveSupport::TestCase
   
   context "pull_curent_from_feed" do
     setup do
-      feed = Feed.create(COMPLETE_PARAMS)
-      feed.expects(:load_feed_from_html).returns(load_xml_file("dirty_info.feed.xml"))
-      feed.load_current_from_feed
+      @feed = Feed.create(COMPLETE_PARAMS)
+      @feed.expects(:load_feed_from_html).returns(load_xml_file("dirty_info.feed.xml"))
+      @feed.load_current_from_feed
     end
     should_change "Post.count", :by => 10
     should_change "AuthorFeed.count", :by => 1
+    
+    should "should pull data" do
+      post = @feed.posts.first
+      assert_not_nil(post)
+      assert_equal("tag:dirtyinformation.com,2006-11-26:2", post.idkey)
+      assert_equal("ImThere.com Mobile/Social Networking in RoR", post.title)
+      assert_equal("http://dirtyinformation.com/2006/11/26/imthere-com-mobile-social-networking-in-ror", post.link)
+      assert_equal("2006-11-26 12:32:00 UTC", post.posted_date.to_s)
+    end
   end
   
   def load_xml_file(filename)

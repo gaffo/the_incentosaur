@@ -6,6 +6,14 @@ class Post < ActiveRecord::Base
   validates_presence_of :author_feed_id, :feed_id, :idkey, :full_post
 	
 	def self.find_or_create_by_author_feed_idkey(args = {})
-		Post.find(:first, :conditions => args) || Post.create(args)
+    conditions = {:idkey => args[:idkey],
+                  :author_feed_id => args[:author_feed_id],
+                  :feed_id => args[:feed_id]} 
+		post = Post.find(:first, :conditions => conditions)
+    if post
+      post
+    else
+      Post.create(args)
+    end
 	end
 end

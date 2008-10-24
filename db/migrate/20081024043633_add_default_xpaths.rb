@@ -5,6 +5,7 @@ class AddDefaultXpaths < ActiveRecord::Migration
       feed.title_xpath = 'title'
       feed.link_xpath = 'link@href'
       feed.data_xpath = 'content'
+      feed.save
     end
   end
 

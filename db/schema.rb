@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081024042419) do
+ActiveRecord::Schema.define(:version => 20081024044639) do
 
   create_table "author_feeds", :force => true do |t|
     t.string   "name",       :null => false
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(:version => 20081024042419) do
     t.datetime "updated_at"
     t.text     "full_post"
     t.datetime "posted_date"
-    t.string   "title"
-    t.string   "link"
+    t.text     "title"
+    t.text     "link"
     t.text     "data"
   end
 

@@ -1,8 +1,8 @@
 class AddColumnsToPosts < ActiveRecord::Migration
   def self.up
     add_column :posts, :posted_date, :datetime
-    add_column :posts, :title, :string
-    add_column :posts, :link, :string
+    add_column :posts, :title, :text
+    add_column :posts, :link, :text
     add_column :posts, :data, :text
   end
 
