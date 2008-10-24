@@ -6,7 +6,7 @@ dirty_information:
   updated_at: 2008-10-10 02:09:48
   url: http://www.dirtyinformation.com/feed/atom.xml
   id: 1
-  full_post_xpath: //entry
+  full_postxpath: //entry
 confabulus:
   authorxpath: author/name
   name: "Confabulus Blog: Mike Gaffney's Rails Blog"
@@ -15,4 +15,4 @@ confabulus:
   updated_at: 2008-10-10 02:09:48
   url: http://blog.confabulus.com/feed/
   id: 2
-  full_post_xpath: //entry
+  full_postxpath: //entry

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081024024455) do
+ActiveRecord::Schema.define(:version => 20081024031949) do
 
   create_table "author_feeds", :force => true do |t|
     t.string   "name",       :null => false
@@ -28,14 +28,14 @@ ActiveRecord::Schema.define(:version => 20081024024455) do
   end
 
   create_table "feeds", :force => true do |t|
-    t.string   "url",                            :null => false
-    t.string   "name",                           :null => false
+    t.string   "url",                           :null => false
+    t.string   "name",                          :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "idkey_xpath"
     t.string   "authorxpath"
-    t.string   "full_post_xpath",                :null => false
-    t.integer  "points",          :default => 1, :null => false
+    t.string   "full_postxpath",                :null => false
+    t.integer  "points",         :default => 1, :null => false
   end
 
   create_table "posts", :force => true do |t|
