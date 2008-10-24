@@ -61,10 +61,10 @@ class FeedTest < ActiveSupport::TestCase
     should "should pull data" do
       post = @feed.posts.first
       assert_not_nil(post)
-      assert_equal("tag:dirtyinformation.com,2006-11-26:2", post.idkey)
-      assert_equal("ImThere.com Mobile/Social Networking in RoR", post.title)
-      assert_equal("http://dirtyinformation.com/2006/11/26/imthere-com-mobile-social-networking-in-ror", post.link)
-      assert_equal("2006-11-26 12:32:00 UTC", post.posted_date.to_s)
+      assert_equal("tag:dirtyinformation.com,2008-09-07:17", post.idkey)
+      assert_equal("Inject & Me - BFFs", post.title)
+      assert_equal("http://dirtyinformation.com/2008/9/7/inject-me-bffs", post.link)
+      assert_equal("2008-09-07 01:48:00 UTC", post.posted_date.to_s)
     end
   end
   
