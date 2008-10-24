@@ -21,10 +21,9 @@ class Feed < ActiveRecord::Base
 			next if p[:author].empty?
 			author_feed = AuthorFeed.find_or_create_by_feed_id_and_name(self.id, p[:author])
 			author_feed.save!
-			hash = {:idkey => p[:idkey], 
-			        :full_post => p[:full_post], 
-			        :author_feed_id => author_feed.id,
-			        :feed_id => self.id}
+      p.delete(:author)
+			hash = {:author_feed_id => author_feed.id,
+			        :feed_id => self.id}.merge(p)
 			Post.find_or_create_by_author_feed_idkey(hash)
 		end
 	end
@@ -35,10 +34,14 @@ class Feed < ActiveRecord::Base
 		posts = []
 		
 		doc.elements.each(self.full_postxpath) do |entry|
-			post = {:idkey => text_or_empty(entry.elements[self.idkey_xpath]),
-			        :author => text_or_empty(entry.elements[self.authorxpath]),
+			post = {:author => text_or_empty(entry.elements[self.authorxpath]),
 			        :full_post => entry.to_s
-		}
+		         }
+      automatic_xpaths.each do |path_name|
+        key = path_name.to_s.gsub(/_xpath$/, '').to_sym
+        value = text_or_empty(entry.elements[send(path_name)])
+        post[key] = value
+      end
 			posts << post
 		end
 		posts
