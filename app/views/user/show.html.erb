@@ -1,9 +1,20 @@
 <h1><%= @record.name %></h1>
 <% @record.posts.recent.each do |post| %>
 <div class="post">
-	<p class="date"><%= post.created_at %><b><%= post.author_feed.name%></b></p>
-	<h2 class="title"><%= post.feed.name %> (<%= post.feed.points %>)</h2>
+	<p class="date"><%= post.posted_date %><b><%= post.author_feed.name %></b></p>
+	<h2 class="title"><a href="<%= post.link %>"><%= post.feed.name %> (<%= post.feed.points %>)</a></h2>
 	<div class="entry">
+		<%= post.data %>
 	</div>
 </div>
+<% end %>
+<% content_for :sidebar do %>
+<li>
+	<h2>Aliases</h2>
+	<ul>
+		<% @record.author_feeds.each do |af| %>
+		<li><%= af.name %>@<%= af.feed.name %> [<%= af.posts.count %>]</li>
+		<% end %>
+	</ul>
+</li>
 <% end %>

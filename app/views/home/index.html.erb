@@ -8,7 +8,7 @@
 	</ul>
 </li>
 <% end %>
-<% @feeds.each do |feed| %>
+<% @feeds.sort{|a, b| b.posts.recent.count <=> a.posts.recent.count}.each do |feed| %>
 <div class="post">
 	<p class="date" title="<%= h feed.name %>"><%= truncate(feed.name, 15) %><b><%= feed.posts.recent.count %></b></p>
 	<h2 class="title"><a href="<%= feed_url(feed.id) %>"><%= h feed.name %></a></h2>

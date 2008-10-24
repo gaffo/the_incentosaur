@@ -1,10 +1,10 @@
 <h1><%= @record.name %></h1>
-<% @record.posts.recent.each do |post| %>
+<% @record.posts.each do |post| %>
 <div class="post">
-	<p class="date"><b><%= post.author_feed.name %></b></p>
-	<h2 class="title"></h2>
+	<p class="date"><%= post.posted_date %><b><%= post.author_feed.name %></b></p>
+	<h2 class="title"><a href="<%= post.link %>"><%= post.title %></a></h2>
 	<div class="entry">
-		<%= post.full_post %>
+		<%= post.data %>
 	</div>
 </div>
 <% end %>
