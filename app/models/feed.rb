@@ -1,6 +1,6 @@
 class Feed < ActiveRecord::Base
 	has_many :posts
-	validates_presence_of :name, :url, :id_xpath, :author_xpath, :entry_xpath, :points
+	validates_presence_of :name, :url, :idkey_xpath, :authorxpath, :full_post_xpath, :points
 	
 	def self.load_all_feeds
 		Feed.find(:all).each do |f|
@@ -30,9 +30,9 @@ class Feed < ActiveRecord::Base
 		
 		posts = []
 		
-		doc.elements.each(self.entry_xpath) do |entry|
-			post = {:idkey => text_or_empty(entry.elements[self.id_xpath]),
-			        :author => text_or_empty(entry.elements[self.author_xpath]),
+		doc.elements.each(self.full_post_xpath) do |entry|
+			post = {:idkey => text_or_empty(entry.elements[self.idkey_xpath]),
+			        :author => text_or_empty(entry.elements[self.authorxpath]),
 			        :full_post => entry.to_s
 		}
 			posts << post

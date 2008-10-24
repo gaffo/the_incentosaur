@@ -1,18 +1,18 @@
 dirty_information:
-  author_xpath: author/name
+  authorxpath: author/name
   name: "Dirty Information: Amos King's Blog"
   created_at: 2008-10-05 22:10:35
-  id_xpath: id
+  idkey_xpath: id
   updated_at: 2008-10-10 02:09:48
   url: http://www.dirtyinformation.com/feed/atom.xml
   id: 1
-  entry_xpath: //entry
+  full_post_xpath: //entry
 confabulus:
-  author_xpath: author/name
+  authorxpath: author/name
   name: "Confabulus Blog: Mike Gaffney's Rails Blog"
   created_at: 2008-10-05 22:10:35
-  id_xpath: id
+  idkey_xpath: id
   updated_at: 2008-10-10 02:09:48
   url: http://blog.confabulus.com/feed/
   id: 2
-  entry_xpath: //entry
+  full_post_xpath: //entry

@@ -2,14 +2,14 @@ require File.dirname(__FILE__) + "/../test_helper"
 
 class FeedTest < ActiveSupport::TestCase
 
-	should_require_attributes :name, :url, :id_xpath, :author_xpath, :entry_xpath, :points
+	should_require_attributes :name, :url, :idkey_xpath, :authorxpath, :full_post_xpath, :points
 	should_have_many :posts
 
   COMPLETE_PARAMS = {:name => "name", 
                      :url => "boogers", 
-                     :entry_xpath => "//entry",
-                     :id_xpath => 'id', 
-                     :author_xpath => 'author/name', 
+                     :full_post_xpath => "//entry",
+                     :idkey_xpath => 'id', 
+                     :authorxpath => 'author/name', 
                      :points => 3}
 
   context "pull feed" do
