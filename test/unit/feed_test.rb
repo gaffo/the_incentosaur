@@ -16,8 +16,7 @@ class FeedTest < ActiveSupport::TestCase
     feed = Feed.create(COMPLETE_PARAMS)
     xpaths = feed.automatic_xpaths
     assert_not_nil(xpaths)
-    assert_equal(1, xpaths.size)
-    assert_same_elements([:idkey_xpath], xpaths)
+    assert_equal(5, xpaths.size)
   end
 
   context "pull feed" do
