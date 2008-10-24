@@ -1,5 +1,5 @@
 <h1><%= @record.name %></h1>
-<% @record.posts.each do |post| %>
+<% @record.posts.sort{|a,b| a.posted_date <=> b.posted_date}.each do |post| %>
 <div class="post">
 	<p class="date"><%= post.posted_date %><b><%= post.author_feed.name %></b></p>
 	<h2 class="title"><a href="<%= post.link %>"><%= post.title %></a></h2>
