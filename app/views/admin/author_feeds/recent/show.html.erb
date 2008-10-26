@@ -1,0 +1,5 @@
+<ul>
+<% @author_feeds.each do |af| %>
+	<li><%= link_to("#{af.name}: #{af.feed.name} First Seen: #{af.created_at}",
+				    edit_admin_author_feed_path(af.id)) %></li>
+<% end %>

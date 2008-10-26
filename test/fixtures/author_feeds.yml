@@ -5,3 +5,10 @@ attributes:
   id: 19
   feed_id: 2
   user_id: 1
+unassigned:
+  name: Unassigned
+  created_at: 2008-10-06 05:04:26
+  updated_at: 2008-10-06 05:04:26
+  id: 20
+  feed_id: 2
+  user_id: 
