@@ -1,5 +1,17 @@
-<ul>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Feed</th>
+		<th>First Seen</th>
+		<th># Posts</th>
+	</tr>
 <% @author_feeds.each do |af| %>
-	<li><%= link_to("#{af.name}: #{af.feed.name} First Seen: #{af.created_at}",
-				    edit_admin_author_feed_path(af.id)) %></li>
+	<tr>
+		<td><%= link_to(af.name,
+				    	edit_admin_author_feed_path(af.id)) %></td>
+		<td><%= af.feed.name %></td>
+		<td><%= af.created_at %></td>
+		<td><%= af.posts.count %></td>
+	</tr>
 <% end %>
+</table>
