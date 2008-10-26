@@ -17,7 +17,7 @@ class Feed < ActiveRecord::Base
   end
 	
   def self.all_ordered_by_recent_count
-    Feed.find(:all).sort{|a,b| a.posts.recent.count <=> b.posts.recent.count}
+    Feed.find(:all).sort{|b,a| a.posts.recent.count <=> b.posts.recent.count}
   end
 
 	def load_current_from_feed

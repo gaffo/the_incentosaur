@@ -24,7 +24,7 @@ class FeedTest < ActiveSupport::TestCase
   end
   
   def test_all_ordered_by_recent_count
-    assert_equal(Feed.find(:all).sort{|a,b| a.posts.recent.count <=> b.posts.recent.count},
+    assert_equal(Feed.find(:all).sort{|b,a| a.posts.recent.count <=> b.posts.recent.count},
                  Feed.all_ordered_by_recent_count)
   end
 
