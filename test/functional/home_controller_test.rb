@@ -7,7 +7,7 @@ class HomeControllerTest < ActionController::TestCase
 			get(:index)
 		end
 		should_respond_with :success
-		should_assign_to :feeds
+		should_assign_to :recent_posts, :equals => "Post.recent"
 		should_assign_to :top_authors
 	end
 end

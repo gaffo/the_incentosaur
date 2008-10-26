@@ -1,12 +1,5 @@
 require File.dirname(__FILE__) + "/../test_helper"
-=begin
-t.integer  "feed_id",        :null => false
-t.integer  "author_feed_id", :null => false
-t.string   "idkey",          :null => false
-t.datetime "created_at"
-t.datetime "updated_at"
-t.text     "full_post"
-=end
+
 class PostTest < ActiveSupport::TestCase
   
   COMPLETE_POST = {:feed_id => 1, :author_feed_id => 1, :idkey => '1', :full_post => 'foo'}
@@ -26,7 +19,7 @@ class PostTest < ActiveSupport::TestCase
 	    end
 	
 	    should "have condition recent" do
-	      expected_conditions  = {:conditions => ["posts.created_at > ?", Date.today - 7.days], :order => "posts.created_at desc"}
+	      expected_conditions  = {:conditions => ["posts.posted_date > ?", Date.today - 7.days], :order => "posts.created_at desc"}
 	      assert_equal expected_conditions, @scoped_find.proxy_options
 	    end
   	end

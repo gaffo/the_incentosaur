@@ -14,8 +14,12 @@ class Feed < ActiveRecord::Base
 	 			puts e
  			end
 		end
-	end
+  end
 	
+  def self.all_ordered_by_recent_count
+    Feed.find(:all).sort{|a,b| a.posts.recent.count <=> b.posts.recent.count}
+  end
+
 	def load_current_from_feed
 		pull_current_from_feed.each do |p|
 			next if p[:author].empty?

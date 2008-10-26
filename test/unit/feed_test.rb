@@ -22,6 +22,11 @@ class FeedTest < ActiveSupport::TestCase
     assert_not_nil(xpaths)
     assert_equal(5, xpaths.size)
   end
+  
+  def test_all_ordered_by_recent_count
+    assert_equal(Feed.find(:all).sort{|a,b| a.posts.recent.count <=> b.posts.recent.count},
+                 Feed.all_ordered_by_recent_count)
+  end
 
   context "pull feed" do
     setup do
