@@ -9,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   	admin.resources :pull, :controller => 'pull'
   end
   
+  map.resource :admin, :controller => 'admin'
   map.resources :feed
   map.resources :user, :id => /.+/
 

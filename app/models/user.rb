@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 	validates_presence_of :name
 	has_many :author_feeds
-  has_many :posts, :through => :author_feeds
+  has_many :posts, :through => :author_feeds, :order => ["posted_date desc"]
 	
 	def points
 		points = 0

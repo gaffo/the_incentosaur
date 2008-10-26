@@ -3,8 +3,9 @@ require File.dirname(__FILE__) + "/../../test_helper"
 class Admin::FeedTypesTest < ActionController::IntegrationTest
 	
 	def test_index
-      visits admin_feed_types_url
-      assert_response :success
+    visits admin_url
+    clicks_link("Feed Types")
+    assert_response :success
 	end
 	
 	def test_create_feed_type
