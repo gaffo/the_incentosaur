@@ -1,5 +1,6 @@
 class Feed < ActiveRecord::Base
 	has_many :posts, :dependent => :destroy, :order => "posted_date desc"
+  has_many :author_feeds, :dependent => :destroy
 	validates_presence_of :name, :url, :idkey_xpath, :authorxpath, :full_postxpath, :points
 	
   def automatic_xpaths

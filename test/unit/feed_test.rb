@@ -4,6 +4,7 @@ class FeedTest < ActiveSupport::TestCase
 
 	should_require_attributes :name, :url, :idkey_xpath, :authorxpath, :full_postxpath, :points
 	should_have_many :posts
+  should_have_many :author_feeds
 
   COMPLETE_PARAMS = {:name => "name", 
                      :url => "boogers", 

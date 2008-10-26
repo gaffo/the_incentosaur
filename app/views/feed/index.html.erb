@@ -3,7 +3,9 @@
         <p class="date" title="<%= h feed.name %>"><%= truncate(feed.name, 15) %><b><%= feed.posts.recent.count %></b></p>
         <h2 class="title"><a href="<%= feed_url(feed.id) %>"><%= h feed.name %></a></h2>
         <div class="entry">
-                Summary Information Here
+        	url: <%= feed.url %><br />
+			total posts: <%= feed.posts.count %><br />
+			total authors: <%= feed.author_feeds.count %>
         </div>
 </div>
 <% end %>
