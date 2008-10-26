@@ -7,6 +7,9 @@ ActionController::Routing::Routes.draw do |map|
   	admin.resources :feeds, :active_scaffold => true
   	admin.resources :users, :active_scaffold => true
   	admin.resources :pull, :controller => 'pull'
+    admin.resources :author_feeds, :active_scaffold => true do |af|
+      af.resource :recent
+    end
   end
   
   map.resource :admin, :controller => 'admin'
