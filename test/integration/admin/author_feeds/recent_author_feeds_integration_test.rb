@@ -6,7 +6,7 @@ class Admin::AuthorFeeds::RecentIntegrationTest < ActionController::IntegrationT
   
   def test_can_get_to_and_assign_a_user
     visits admin_url
-    clicks_link("Recent Author Feeds")
+    clicks_link("Recent Authors")
     clicks_link("Unassigned")
     selects(users(:amos).name)
     clicks_button("Update")
