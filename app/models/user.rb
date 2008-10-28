@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  is_gravtastic :rating => 'G'
 	validates_presence_of :name
 	has_many :author_feeds
   has_many :posts, :through => :author_feeds, :order => ["posted_date desc"]

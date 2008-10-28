@@ -9,6 +9,13 @@ class UserControllerIntegrationTest < ActionController::IntegrationTest
     assert_equal(user_url(user.name), @request.url)
   end
   
+  def test_gravatar_image
+     user = users(:amos)
+     visits(root_url)
+     clicks_link("#{user.name}: #{user.points}")
+     assert_tag :tag => 'img', :attributes => {:src => user.gravatar_url}
+   end
+  
   context 'A user with a . in the username' do
     setup do
       @user = users(:period)
