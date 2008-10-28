@@ -13,3 +13,6 @@
 [submodule "vendor/plugins/auths_as_http_basic"]
 	path = vendor/plugins/auths_as_http_basic
 	url = git://github.com/gaffo/auths_as_http_basic.git
+[submodule "vendor/gems/gravtastic"]
+	path = vendor/gems/gravtastic
+	url = git://github.com/chrislloyd/gravtastic.git
