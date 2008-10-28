@@ -15,7 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resource :admin, :controller => 'admin'
   map.resources :feed
-  map.resources :user, :id => /.+/
+  map.resources :user, :requirements => {:id => /.+/}
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

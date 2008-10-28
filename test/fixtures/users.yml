@@ -4,3 +4,6 @@ amos:
 gaffo:
   id: 2
   name: gaffo
+period:
+  id: 3
+  name: amos.king
