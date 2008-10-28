@@ -12,6 +12,7 @@ class Admin::AuthorFeeds::RecentControllerTest < ActionController::TestCase
     end
     should_respond_with(:success)
     should_assign_to(:author_feeds, :equals => "AuthorFeed.recent_unassigned")
+    should_have_link_to_admin_home
   end
 
 end

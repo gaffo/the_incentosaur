@@ -8,6 +8,7 @@ class Admin::FeedTypesControllerTest < ActionController::TestCase
 				get(action)
 			end
 			should_respond_with :success
+			should_have_link_to_admin_home
 		end
 	end
 	
