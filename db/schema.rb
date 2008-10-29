@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081029045900) do
+ActiveRecord::Schema.define(:version => 20081029055959) do
 
   create_table "author_feeds", :force => true do |t|
     t.string   "name",       :null => false
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20081029045900) do
 
   create_table "settings", :force => true do |t|
     t.string   "name",       :null => false
-    t.string   "value"
+    t.text     "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
