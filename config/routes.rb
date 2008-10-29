@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
       af.resource :recent, :controller => 'recent'
     end
     admin.resources :author_feeds, :active_scaffold => true
+    admin.resources :settings, :active_scaffold => true
   end
   
   map.resource :admin, :controller => 'admin'
