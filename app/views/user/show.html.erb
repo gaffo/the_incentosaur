@@ -1,5 +1,5 @@
-<h1><%= @record.name %></h1>
-<%= image_tag(@record.gravatar_url) unless @record.email.nil? %>
+<h1><%= image_tag(@record.gravatar_url) unless @record.email.nil? %> <%= @record.name %></h1>
+
 <% @record.posts.each do |post| %>
 <div class="post">
 	<p class="date"><%= post.posted_date %><b><%= post.author_feed.name %></b></p>
