@@ -27,7 +27,7 @@ class UserControllerIntegrationTest < ActionController::IntegrationTest
     
     should 'still be reachable' do
       assert_equal(user_url(@user.name), @request.url)
-      assert_tag :tag => 'h1', :content => @user.name
+      assert_tag :tag => 'h1', :content => /#{@user.name}/
     end
   end
 end
